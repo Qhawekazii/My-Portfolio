@@ -1,11 +1,8 @@
-/* =========================
-   TYPING EFFECT
-========================= */
-
+//Typing effect
 const text = [
-  "Fullstack Developer",
-  "Android Developer",
-  "UI Designer"
+  "Building fullstack web apps",
+  "Android development with Kotlin",
+  "UI-focused development"
 ];
 
 let i = 0;
@@ -13,42 +10,25 @@ let j = 0;
 let currentText = "";
 let isDeleting = false;
 
-function type(){
-
+function type() {
   const element = document.querySelector(".typing");
+  if (!element) return;
 
-  if(i < text.length){
-
-    if(!isDeleting && j <= text[i].length){
-
+  if (i < text.length) {
+    if (!isDeleting && j <= text[i].length) {
       currentText = text[i].substring(0, j++);
-
-    }
-
-    else if(isDeleting && j >= 0){
-
+    } else if (isDeleting && j >= 0) {
       currentText = text[i].substring(0, j--);
-
     }
 
     element.textContent = currentText;
 
-    if(j === text[i].length){
+    if (j === text[i].length) isDeleting = true;
 
-      isDeleting = true;
-
-    }
-
-    if(j === 0){
-
+    if (j === 0) {
       isDeleting = false;
       i++;
-
-      if(i === text.length){
-
-        i = 0;
-
-      }
+      if (i === text.length) i = 0;
     }
   }
 
@@ -56,45 +36,23 @@ function type(){
 }
 
 type();
+ // Fade on Scroll
 
-/* =========================
-   SCROLL ANIMATION
-========================= */
-
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-
-  faders.forEach(el => {
-
-    const top = el.getBoundingClientRect().top;
-
-    if(top < window.innerHeight - 50){
-
-      el.classList.add('show');
-
-    }
-
-  });
-
-});
-
-/* HERO SHOW ON LOAD */
-
-window.addEventListener("load", () => {
-
-  document.querySelector(".hero").classList.add("show");
-
-});
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
     }
   });
-});
+}, { threshold: 0.1 });
 
 document.querySelectorAll(".project-card, .card, .skill").forEach(el => {
   el.classList.add("fade-in");
   observer.observe(el);
+});
+
+
+window.addEventListener("load", () => {
+  const hero = document.querySelector(".hero");
+  if (hero) hero.classList.add("show");
 });
