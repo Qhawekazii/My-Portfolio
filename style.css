@@ -290,3 +290,24 @@ gap:8px;
 .about-list i{
 color:#ff4ecb;
 }
+.case-study {
+margin-top: 15px;
+padding-top: 10px;
+border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.case-study summary {
+cursor: pointer;
+font-weight: 600;
+margin-bottom: 10px;
+}
+
+.case-study p {
+font-size: 0.9rem;
+line-height: 1.6;
+margin-bottom: 10px;
+}
+
+.case-study strong {
+color: inherit;
+}
