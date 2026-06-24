@@ -247,11 +247,12 @@ Ultimately, I am someone who believes that growth happens through discomfort, co
 <section class="contact fade" id="contact">
   <h2 class="section-title">Contact Me</h2>
 
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message"></textarea>
+  <form id="contactForm" novalidate>
+    <input id="name" name="name" type="text" placeholder="Your Name" required autocomplete="name">
+    <input id="email" name="email" type="email" placeholder="Your Email" required autocomplete="email">
+    <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
     <button type="submit">Send Message</button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
   </form>
 </section>
 
