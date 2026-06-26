@@ -158,17 +158,35 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
+.fade-in{
+opacity:0;
+transform:translateY(24px);
+transition:opacity .7s ease, transform .7s ease, box-shadow .3s ease;
+}
+
+.fade-in.show{
+opacity:1;
+transform:translateY(0);
+}
+
 .project-card{
 background:#111;
 border-radius:12px;
 overflow:hidden;
+transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.project-card:hover{
+transform:translateY(-6px);
+box-shadow:0 16px 35px rgba(0,0,0,.25);
 }
 
 .project-card img{width:100%;height:180px;object-fit:cover;}
 
 .project-content{padding:15px;}
 
-.project-content a{color:#00fff2;margin-right:10px;text-decoration:none;}
+.project-content a{color:#00fff2;margin-right:10px;text-decoration:none;transition:color .2s ease;}
+.project-content a:hover{color:#ff4ecb;}
 
 /* SKILLS */
 .skills-container{
