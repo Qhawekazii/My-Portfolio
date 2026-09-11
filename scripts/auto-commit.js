@@ -34,7 +34,7 @@ function commitChanges() {
   }
 
   try {
-    execSync("git add -u", {
+    execSync("git add -A", {
       cwd: root,
       stdio: ["ignore", "inherit", "inherit"],
     });
