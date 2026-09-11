@@ -1,0 +1,52 @@
+import { useEffect, useState } from "react"
+
+function Loader({ onComplete }) {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval)
+
+          setTimeout(() => {
+            onComplete()
+          }, 300)
+
+          return 100
+        }
+
+        return prev + 4
+      })
+    }, 40)
+
+    return () => clearInterval(interval)
+  }, [onComplete])
+
+  return (
+    <div className="loader">
+      <div className="loader-inner">
+
+        <div className="loader-logo">
+          Q
+        </div>
+
+        <p className="loader-label">
+          INITIALISING EXPERIENCE
+        </p>
+
+        <div className="loader-bar">
+          <span style={{ width: `${progress}%` }}></span>
+        </div>
+
+        <div className="loader-bottom">
+          <span>QHAWEKAZI</span>
+          <span>{progress}%</span>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
+export default Loader
