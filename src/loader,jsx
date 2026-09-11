@@ -36,7 +36,7 @@ function Loader({ onComplete }) {
         </p>
 
         <div className="loader-bar">
-          <span style={{ width: `${progress}%` }}></span>
+          <span style ={{ width: `${progress}%` }}></span>
         </div>
 
         <div className="loader-bottom">
