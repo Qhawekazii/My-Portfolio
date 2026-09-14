@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { FaGithub, FaLinkedin, FaEnvelope, FaDiscord } from "react-icons/fa"
 
-const EMAIL = "emilym01@gmail.com"
+const EMAIL = "emilyqm01@gmail.com"
 const GITHUB = "https://github.com/Qhawekazii"
-// TODO: swap in the real profile links once available
-const LINKEDIN = ""
+const LINKEDIN = "https://www.linkedin.com/in/emily-maramani-ab0765320"
+// TODO: swap in the real profile link once available
 const DISCORD = ""
 
 const SOCIALS = [
@@ -80,14 +80,15 @@ function Contact() {
         <h2>
           Let's<br />build<br />something.
         </h2>
+        <p className="contact-tagline">
+          Got a role, a project, or just want to say hi? I read every message
+          myself — reach out directly or send it through the form.
+        </p>
       </div>
 
       <div className="contact-grid">
         <div className="contact-block">
-          <h4>Email</h4>
-          <a href={`mailto:${EMAIL}`} data-cursor="hover">{EMAIL}</a>
-
-          <h4 style={{ marginTop: 28 }}>Find me here</h4>
+          <h4>Find me here</h4>
           <div className="contact-socials">
             {SOCIALS.map(({ label, href, Icon, external }) => (
               <a
@@ -105,39 +106,39 @@ function Contact() {
             ))}
           </div>
         </div>
-      </div>
 
-      <form className="contact-form" onSubmit={handleSubmit} noValidate>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={form.name}
-          onChange={handleChange}
-          autoComplete="name"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={form.email}
-          onChange={handleChange}
-          autoComplete="email"
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          rows={5}
-          value={form.message}
-          onChange={handleChange}
-        />
-        <button type="submit" className="contact-submit" disabled={sending}>
-          {sending ? "Sending..." : "Send Message"}
-        </button>
-        <p className={`form-status ${status.type}`} role="status" aria-live="polite">
-          {status.text}
-        </p>
-      </form>
+        <form className="contact-form" onSubmit={handleSubmit} noValidate>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={form.name}
+            onChange={handleChange}
+            autoComplete="name"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={form.email}
+            onChange={handleChange}
+            autoComplete="email"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows={5}
+            value={form.message}
+            onChange={handleChange}
+          />
+          <button type="submit" className="contact-submit" disabled={sending}>
+            {sending ? "Sending..." : "Send Message"}
+          </button>
+          <p className={`form-status ${status.type}`} role="status" aria-live="polite">
+            {status.text}
+          </p>
+        </form>
+      </div>
 
       <div className="footer-bar">
         <span>© 2026 Emily Qhawekazi Maramani</span>
