@@ -7,14 +7,6 @@ const watchedDirectories = new Set();
 const ignoredDirNames = new Set([".git", "node_modules", "dist", "dist-ssr"]);
 let debounceTimer = null;
 
-function runGit(args) {
-  return execSync(`git ${args}`, {
-    cwd: root,
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"],
-  }).trim();
-}
-
 function hasChanges() {
   try {
     const status = execSync("git status --porcelain", {
