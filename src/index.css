@@ -382,9 +382,9 @@ h1, h2, h3, h4 {
 .side-nav-item,
 .cv-btn,
 .contact-submit,
-.learning-pill,
 .project-tech span,
 .role-pill,
+.tech-icon,
 .contact-form input,
 .contact-form textarea {
   position: relative;
@@ -940,25 +940,83 @@ h1, h2, h3, h4 {
 }
 
 /* currently learning pills */
-.learning-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+/* auto-scrolling strip of tech icons — greyscale by default, each
+   lights up in its real brand color on hover, with a name tooltip */
+.tech-marquee {
   margin-top: 40px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-.learning-pill {
-  padding: 10px 18px;
-  border-radius: 100px;
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: techMarquee 24s linear infinite;
+}
+
+.tech-marquee:hover .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes techMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee-track { animation: none; }
+}
+
+.tech-icon-wrap {
+  position: relative;
+  flex: none;
+}
+
+.tech-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
   border: 1px solid var(--border-strong);
-  font-size: 0.88rem;
-  color: var(--text-dim);
-  transition: border-color 0.3s ease, color 0.3s ease;
+  background: var(--panel);
+  color: var(--text-mute);
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s var(--ease);
 }
 
-.learning-pill:hover {
-  border-color: var(--teal);
-  color: var(--teal);
+.tech-icon:hover,
+.tech-icon:focus-visible {
+  color: var(--brand);
+  border-color: var(--brand);
+  transform: translateY(-4px) scale(1.06);
+}
+
+.tech-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  font-family: var(--heading-font);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text);
+  background: rgba(10, 14, 26, 0.85);
+  border: 1px solid var(--border-strong);
+  padding: 5px 10px;
+  border-radius: 100px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s var(--ease);
+}
+
+.tech-icon-wrap:hover .tech-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ==========================================================

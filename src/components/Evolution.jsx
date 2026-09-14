@@ -1,4 +1,14 @@
 import { useReveal } from "../hooks/useReveal.js"
+import {
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+} from "react-icons/si"
 
 const STEPS = [
   {
@@ -24,14 +34,14 @@ const STEPS = [
 ]
 
 const LEARNING = [
-  "React",
-  "JavaScript",
-  "APIs",
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "UI/UX",
-  "Full Stack Development",
+  { label: "HTML5", Icon: SiHtml5, color: "#E34F26" },
+  { label: "CSS3", Icon: SiCss, color: "#1572B6" },
+  { label: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+  { label: "React", Icon: SiReact, color: "#61DAFB" },
+  { label: "Node.js", Icon: SiNodedotjs, color: "#339933" },
+  { label: "Express.js", Icon: SiExpress, color: "#9CA3AF" },
+  { label: "MongoDB", Icon: SiMongodb, color: "#47A248" },
+  { label: "Firebase", Icon: SiFirebase, color: "#FFCA28" },
 ]
 
 function TimelineItem({ step }) {
@@ -64,10 +74,17 @@ function Evolution() {
       <div className="section-head" style={{ marginTop: 90, marginBottom: 0 }}>
         <span className="eyebrow">Currently Learning</span>
       </div>
-      <div className="learning-grid">
-        {LEARNING.map((item) => (
-          <span className="learning-pill" key={item}>{item}</span>
-        ))}
+      <div className="tech-marquee">
+        <div className="tech-marquee-track">
+          {[...LEARNING, ...LEARNING].map(({ label, Icon, color }, i) => (
+            <div className="tech-icon-wrap" style={{ "--brand": color }} key={`${label}-${i}`}>
+              <span className="tech-icon" data-cursor="hover">
+                <Icon size={26} />
+              </span>
+              <span className="tech-tooltip">{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
