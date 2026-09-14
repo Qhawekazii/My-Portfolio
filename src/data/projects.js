@@ -7,6 +7,7 @@
 import kindernest from "../assets/kindernest.png"
 import ihub from "../assets/iHubLogo.webp"
 import pawfinder from "../assets/pawfinder-paw.svg"
+import urbanThreads from "../assets/UrbanThreads.png"
 
 const projects = [
   {
@@ -59,7 +60,7 @@ const projects = [
     name: "Urban Threads",
     type: "WEB / E-COMMERCE",
     tech: ["HTML", "CSS", "JavaScript", "Firebase Firestore", "Firebase Auth"],
-    image: "",
+    image: urbanThreads,
     description:
       "My first e-commerce build: a streetwear storefront with dynamic product browsing, account sign-up/login, and a shopping cart with live totals — all backed by Firebase Firestore and Firebase Authentication.",
     live: "https://qhawekazii.github.io/Q-s-Urban-Threads/",
