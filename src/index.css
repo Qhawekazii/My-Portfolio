@@ -18,11 +18,46 @@
   --border-strong: rgba(255, 255, 255, 0.16);
 
   --panel: rgba(255, 255, 255, 0.04);
+  --overlay: rgba(5, 10, 20, 0.92);
+
+  --success: #7df9c2;
+  --error: #ff7b7b;
 
   --heading-font: "Space Grotesk", "Arial", sans-serif;
   --body-font: "Space Grotesk", "Arial", sans-serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================
+   LIGHT MODE
+   Same tokens, same layered-gradient design — just re-tuned so
+   everything stays readable on a light ground. A few fixed-dark
+   chrome pieces (loader, hero photo backdrop, nav overlay, project
+   status badges) intentionally opt out below so their permanently
+   dark surfaces don't end up with dark-on-dark text.
+   ========================================================== */
+:root[data-theme="light"] {
+  --navy-1: #fbfbfe;
+  --navy-2: #f4f5fa;
+  --navy-3: #eef0f8;
+  --navy-4: #e7e4f6;
+
+  --teal: #0f766e;
+  --pink: #be185d;
+
+  --text: #12141f;
+  --text-dim: #3d4256;
+  --text-mute: #6b7286;
+
+  --border: rgba(10, 15, 30, 0.1);
+  --border-strong: rgba(10, 15, 30, 0.18);
+
+  --panel: rgba(10, 15, 30, 0.035);
+  --overlay: rgba(255, 255, 255, 0.9);
+
+  --success: #15803d;
+  --error: #b91c1c;
 }
 
 /* ==========================================================
@@ -42,12 +77,13 @@ body {
   font-family: var(--body-font);
   font-weight: 300;
   letter-spacing: 0.01em;
-  background: linear-gradient(rgba(5, 10, 20, 0.92), rgba(5, 10, 20, 0.92)),
+  background: linear-gradient(var(--overlay), var(--overlay)),
     linear-gradient(120deg, var(--navy-1), var(--navy-2), var(--navy-3), var(--navy-4));
   background-attachment: fixed;
   color: var(--text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -162,6 +198,16 @@ h1, h2, h3, h4 {
    LOADER
    ========================================================== */
 .loader {
+  /* pinned to the dark palette regardless of theme — it's a brief splash, not content */
+  --navy-1: #0d1117;
+  --navy-4: #1e1b4b;
+  --teal: #00fff2;
+  --pink: #ff4ecb;
+  --text: #ffffff;
+  --text-dim: #cfd8e3;
+  --text-mute: #8891a4;
+  --border: rgba(255, 255, 255, 0.08);
+
   position: fixed;
   inset: 0;
   z-index: 999;
@@ -360,6 +406,18 @@ h1, h2, h3, h4 {
 /* ==========================================================
    NAVIGATION
    ========================================================== */
+.nav-toggle,
+.theme-toggle,
+.cursor-dot,
+.cursor-ring {
+  /* floating UI chrome keeps its brand color regardless of theme */
+  --teal: #00fff2;
+  --pink: #ff4ecb;
+  --text: #ffffff;
+  --text-mute: #8891a4;
+  --border-strong: rgba(255, 255, 255, 0.16);
+}
+
 .nav-toggle {
   position: relative;
   order: 2;
@@ -392,6 +450,41 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: rgba(10, 14, 26, 0.55);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-mute);
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: scale(1.06);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
 }
 
 .nav-toggle-label {
@@ -456,6 +549,13 @@ h1, h2, h3, h4 {
 }
 
 .nav-overlay {
+  /* full-bleed dark menu stays consistent regardless of theme */
+  --teal: #00fff2;
+  --pink: #ff4ecb;
+  --text: #ffffff;
+  --text-dim: #cfd8e3;
+  --text-mute: #8891a4;
+
   position: fixed;
   inset: 0;
   z-index: 890;
@@ -531,6 +631,14 @@ h1, h2, h3, h4 {
    HERO
    ========================================================== */
 .hero {
+  /* sits on a darkened photo backdrop, so it keeps its own dark palette
+     regardless of site theme — otherwise text would go dark-on-dark */
+  --teal: #00fff2;
+  --pink: #ff4ecb;
+  --text: #ffffff;
+  --text-dim: #cfd8e3;
+  --text-mute: #8891a4;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -936,6 +1044,11 @@ h1, h2, h3, h4 {
 }
 
 .project-status {
+  /* small dark chip on top of the image — stays dark regardless of theme */
+  --teal: #00fff2;
+  --text-dim: #cfd8e3;
+  --border-strong: rgba(255, 255, 255, 0.16);
+
   position: absolute;
   top: 12px;
   right: 12px;
@@ -1167,7 +1280,7 @@ h1, h2, h3, h4 {
   padding: 14px 16px;
   border-radius: 10px;
   border: 1px solid var(--border-strong);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--panel);
   color: var(--text);
   font-family: var(--body-font);
   resize: vertical;
@@ -1199,8 +1312,8 @@ h1, h2, h3, h4 {
   font-size: 0.85rem;
   color: var(--text-dim);
 }
-.form-status.success { color: #7df9c2; }
-.form-status.error { color: #ff7b7b; }
+.form-status.success { color: var(--success); }
+.form-status.error { color: var(--error); }
 
 .footer-bar {
   padding: 40px 8% 50px;
