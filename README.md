@@ -4,7 +4,6 @@
 
 A React + Vite portfolio built from scratch — no template, no theme, every animation and interaction hand-built to show both sides of the work: the interface and the code behind it.
 
-🔗 **Live site:** [qhawekazii.github.io/My-Portfolio](https://qhawekazii.github.io/My-Portfolio/)
 📄 **CV:** available to view/download straight from the site
 
 ---
