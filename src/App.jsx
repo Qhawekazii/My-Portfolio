@@ -7,7 +7,6 @@ import Hero from "./components/Hero.jsx"
 import Story from "./components/Story.jsx"
 import Evolution from "./components/Evolution.jsx"
 import Projects from "./components/Projects.jsx"
-import CV from "./components/CV.jsx"
 import Contact from "./components/Contact.jsx"
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
         <Story />
         <Evolution />
         <Projects />
-        <CV />
         <Contact />
       </main>
     </>

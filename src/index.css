@@ -1180,31 +1180,10 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================
-   CV SECTION
+   CV BUTTONS
+   (used in the hero — the standalone CV section was removed since
+   these same actions already live there)
    ========================================================== */
-.cv-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 50px;
-  flex-wrap: wrap;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.cv-desc {
-  color: var(--text-dim);
-  max-width: 420px;
-  margin-top: 14px;
-  line-height: 1.7;
-}
-
-.cv-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
 .cv-btn {
   font-family: var(--heading-font);
   font-size: 0.9rem;

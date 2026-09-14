@@ -49,7 +49,7 @@ function TimelineItem({ step }) {
 function Evolution() {
   return (
     <section id="evolution">
-      <span className="section-num">03 / 06</span>
+      <span className="section-num">03 / 05</span>
       <div className="section-head">
         <span className="eyebrow">My Evolution</span>
         <h2>Growth, one year at a time.</h2>

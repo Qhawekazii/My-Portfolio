@@ -49,7 +49,7 @@ function ProjectEntry({ project }) {
 function Projects() {
   return (
     <section id="work">
-      <span className="section-num">04 / 06</span>
+      <span className="section-num">04 / 05</span>
       <div className="section-head">
         <span className="eyebrow">Projects</span>
         <h2>Selected Work.</h2>

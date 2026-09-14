@@ -5,8 +5,7 @@ const LINKS = [
   { idx: "02", label: "My Story", id: "story" },
   { idx: "03", label: "My Evolution", id: "evolution" },
   { idx: "04", label: "Work", id: "work" },
-  { idx: "05", label: "CV", id: "cv" },
-  { idx: "06", label: "Contact", id: "contact" },
+  { idx: "05", label: "Contact", id: "contact" },
 ]
 
 function Navigation() {

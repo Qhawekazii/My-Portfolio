@@ -7,7 +7,7 @@ function Story() {
 
   return (
     <section id="story">
-      <span className="section-num">02 / 06</span>
+      <span className="section-num">02 / 05</span>
       <div className="section-head">
         <span className="eyebrow">My Story</span>
         <h2>The person behind the code.</h2>
@@ -33,24 +33,13 @@ function Story() {
             before anyone has to ask.
           </p>
           <p>
-            I'm shaped more by curiosity than comfort. When something breaks or
-            doesn't make sense, I research it, ask for help without ego, and take
-            intentional breaks so I come back sharper — not stuck.
+            Curious over comfortable. I research, ask for help without ego, and
+            show up for my team — the one making sure no one gets left behind.
           </p>
           <p>
-            On a team, I'm the one making sure no one gets left behind on a task:
-            talkative, bubbly, and genuinely energised by solving problems with
-            people, not just for them.
-          </p>
-          <p>
-            Outside the editor: family, faith, fitness, and being a mother — the
-            parts of my life that taught me discipline and resilience long before a
-            sprint retro ever did.
-          </p>
-          <p>
-            Growth happens in discomfort, so I keep choosing hard things on purpose.
-            I'm proud of the developer I'm becoming — and this is very much still
-            in progress.
+            Family, faith, fitness, and motherhood taught me discipline long before
+            agile did. Growth lives in discomfort, so I keep choosing hard things —
+            and I'm just getting started.
           </p>
         </div>
       </div>

@@ -58,7 +58,7 @@ function Hero() {
       </div>
 
       <div className="hero-foot">
-        <span>01 / 06</span>
+        <span>01 / 05</span>
         <span className="scroll-cue">
           Scroll to explore
           <span className="line" />
