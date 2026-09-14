@@ -1194,6 +1194,27 @@ h1, h2, h3, h4 {
   outline-offset: 3px;
 }
 
+.contact-social-wrap {
+  position: relative;
+}
+
+.contact-social-copied {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--heading-font);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: var(--success);
+  background: var(--panel);
+  border: 1px solid var(--border-strong);
+  padding: 5px 10px;
+  border-radius: 100px;
+  pointer-events: none;
+}
+
 .contact-form {
   max-width: 480px;
   display: flex;

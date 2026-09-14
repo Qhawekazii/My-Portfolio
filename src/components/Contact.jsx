@@ -4,20 +4,32 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaDiscord } from "react-icons/fa"
 const EMAIL = "emilyqm01@gmail.com"
 const GITHUB = "https://github.com/Qhawekazii"
 const LINKEDIN = "https://www.linkedin.com/in/emily-maramani-ab0765320"
-// TODO: swap in the real profile link once available
-const DISCORD = ""
+// Discord has no public profile URL from a username alone (only from a
+// numeric user ID), so this one copies the username instead of linking.
+const DISCORD_USERNAME = "emilyqhawekazim"
 
 const SOCIALS = [
   { label: "Email", href: `mailto:${EMAIL}`, Icon: FaEnvelope, external: false },
   { label: "GitHub", href: GITHUB, Icon: FaGithub, external: true },
   { label: "LinkedIn", href: LINKEDIN, Icon: FaLinkedin, external: true },
-  { label: "Discord", href: DISCORD, Icon: FaDiscord, external: true },
-].filter((social) => social.href)
+  { label: "Discord", copy: DISCORD_USERNAME, Icon: FaDiscord },
+].filter((social) => social.href || social.copy)
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" })
   const [status, setStatus] = useState({ text: "", type: "" })
   const [sending, setSending] = useState(false)
+  const [copiedLabel, setCopiedLabel] = useState("")
+
+  const copyToClipboard = async (label, value) => {
+    try {
+      await navigator.clipboard.writeText(value)
+    } catch {
+      window.prompt("Copy this:", value)
+    }
+    setCopiedLabel(label)
+    setTimeout(() => setCopiedLabel(""), 1800)
+  }
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -90,19 +102,34 @@ function Contact() {
         <div className="contact-block">
           <h4>Find me here</h4>
           <div className="contact-socials">
-            {SOCIALS.map(({ label, href, Icon, external }) => (
-              <a
-                key={label}
-                href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noreferrer" : undefined}
-                className="contact-social"
-                aria-label={label}
-                title={label}
-                data-cursor="hover"
-              >
-                <Icon size={20} />
-              </a>
+            {SOCIALS.map(({ label, href, copy, Icon, external }) => (
+              <div className="contact-social-wrap" key={label}>
+                {copy ? (
+                  <button
+                    type="button"
+                    className="contact-social"
+                    aria-label={`Copy ${label} username`}
+                    title={`Copy ${label} username`}
+                    data-cursor="hover"
+                    onClick={() => copyToClipboard(label, copy)}
+                  >
+                    <Icon size={20} />
+                  </button>
+                ) : (
+                  <a
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noreferrer" : undefined}
+                    className="contact-social"
+                    aria-label={label}
+                    title={label}
+                    data-cursor="hover"
+                  >
+                    <Icon size={20} />
+                  </a>
+                )}
+                {copiedLabel === label && <span className="contact-social-copied">Copied!</span>}
+              </div>
             ))}
           </div>
         </div>
