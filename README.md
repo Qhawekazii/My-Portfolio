@@ -9,7 +9,7 @@ A React + Vite portfolio built from scratch — no template, no theme, every ani
 
 ---
 
-## ✨ What's actually in it
+##  What's actually in it
 
 This isn't just a static "about me" page — it's built to *feel* like a product:
 
@@ -23,7 +23,7 @@ This isn't just a static "about me" page — it's built to *feel* like a product
 - **A responsive project grid** pulling from a single data file (`src/data/projects.js`) — add a project by editing one array, no touching the UI code.
 - Fully responsive, keyboard-accessible (visible focus states, `aria-label`s throughout), and respects `prefers-reduced-motion`.
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer | Tools |
 |---|---|
@@ -33,7 +33,7 @@ This isn't just a static "about me" page — it's built to *feel* like a product
 | Forms | [FormSubmit](https://formsubmit.co/) (no backend required) |
 | Linting | ESLint 10 + `eslint-plugin-react-hooks` |
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 git clone https://github.com/Qhawekazii/My-Portfolio.git
@@ -53,7 +53,7 @@ The dev server prints a local URL (usually `http://localhost:5173`) — open it 
 | `npm run preview` | Serve the production build locally to sanity-check it |
 | `npm run lint` | Run ESLint across the project |
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -66,7 +66,7 @@ src/
 public/               # Static files served as-is (favicon, the CV PDF)
 ```
 
-## 🗂️ Featured Projects
+##  Featured Projects
 
 | Project | Stack | Links |
 |---|---|---|
@@ -77,7 +77,7 @@ public/               # Static files served as-is (favicon, the CV PDF)
 
 *(A couple more are in progress and marked accordingly on the site.)*
 
-## 📬 Get in Touch
+##  Get in Touch
 
 - **Email:** emilyqm01@gmail.com
 - **GitHub:** [@Qhawekazii](https://github.com/Qhawekazii)
