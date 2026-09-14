@@ -99,6 +99,38 @@ function Contact() {
       </div>
 
       <div className="contact-grid">
+        <form className="contact-form" onSubmit={handleSubmit} noValidate>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={form.name}
+            onChange={handleChange}
+            autoComplete="name"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={form.email}
+            onChange={handleChange}
+            autoComplete="email"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows={5}
+            value={form.message}
+            onChange={handleChange}
+          />
+          <button type="submit" className="contact-submit" disabled={sending}>
+            {sending ? "Sending..." : "Send Message"}
+          </button>
+          <p className={`form-status ${status.type}`} role="status" aria-live="polite">
+            {status.text}
+          </p>
+        </form>
+
         <div className="contact-block">
           <h4>Find me here</h4>
           <div className="contact-socials">
@@ -133,38 +165,6 @@ function Contact() {
             ))}
           </div>
         </div>
-
-        <form className="contact-form" onSubmit={handleSubmit} noValidate>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            autoComplete="name"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            autoComplete="email"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows={5}
-            value={form.message}
-            onChange={handleChange}
-          />
-          <button type="submit" className="contact-submit" disabled={sending}>
-            {sending ? "Sending..." : "Send Message"}
-          </button>
-          <p className={`form-status ${status.type}`} role="status" aria-live="polite">
-            {status.text}
-          </p>
-        </form>
       </div>
 
       <div className="footer-bar">
