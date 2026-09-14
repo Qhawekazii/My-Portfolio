@@ -1248,14 +1248,19 @@ h1, h2, h3, h4 {
 .form-status.error { color: var(--error); }
 
 .footer-bar {
-  padding: 18px 8% 22px;
+  padding: 14px 8%;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-wrap: nowrap;
   gap: 12px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-mute);
   border-top: 1px solid var(--border);
+}
+
+@media (max-width: 560px) {
+  .footer-bar { flex-wrap: wrap; }
 }
 
 /* visible focus states across the app */
