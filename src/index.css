@@ -323,6 +323,41 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================
+   MAGNETIC GLOW HOVER
+   pink glow that follows the pointer around inside an element,
+   used on the portrait photo and project visuals
+   ========================================================== */
+.glow-hover {
+  position: relative;
+  isolation: isolate;
+}
+
+.glow-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 78, 203, 0.55),
+    rgba(255, 78, 203, 0.14) 45%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.glow-hover:hover::after {
+  opacity: 1;
+}
+
+@media (pointer: coarse) {
+  .glow-hover::after { display: none; }
+}
+
+/* ==========================================================
    NAVIGATION
    ========================================================== */
 .nav-toggle {

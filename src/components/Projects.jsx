@@ -1,13 +1,15 @@
 import projects from "../data/projects.js"
 import { useReveal } from "../hooks/useReveal.js"
+import { useGlowHover } from "../hooks/useGlowHover.js"
 
 function ProjectEntry({ project }) {
   const ref = useReveal()
+  const { ref: glowRef, onMouseMove: onGlowMove } = useGlowHover()
   const status = project.status
 
   return (
     <article className="project-card reveal" ref={ref} data-cursor="project">
-      <div className="project-visual">
+      <div className="project-visual glow-hover" ref={glowRef} onMouseMove={onGlowMove}>
         {project.image ? (
           <img src={project.image} alt={project.name} loading="lazy" />
         ) : (
