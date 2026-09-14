@@ -1248,12 +1248,12 @@ h1, h2, h3, h4 {
 .form-status.error { color: var(--error); }
 
 .footer-bar {
-  padding: 40px 8% 50px;
+  padding: 18px 8% 22px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-mute);
   border-top: 1px solid var(--border);
 }
