@@ -54,17 +54,16 @@ const projects = [
     live: "https://react-dog-search-app.vercel.app/",
     github: "https://github.com/hlatsiboy113-png/react-dog-search-app.git",
   },
-  // TODO: fill in real description, tech, image, and links once available
   {
     number: "04",
     name: "Urban Threads",
     type: "WEB / E-COMMERCE",
-    tech: [],
+    tech: ["HTML", "CSS", "JavaScript", "Firebase Firestore", "Firebase Auth"],
     image: "",
-    description: "My first e-commerce build. Full description and tech stack coming soon.",
-    live: "",
-    github: "",
-    status: { type: "progress", label: "Details Coming Soon" },
+    description:
+      "My first e-commerce build: a streetwear storefront with dynamic product browsing, account sign-up/login, and a shopping cart with live totals — all backed by Firebase Firestore and Firebase Authentication.",
+    live: "https://qhawekazii.github.io/Q-s-Urban-Threads/",
+    github: "https://github.com/Qhawekazii/Q-s-Urban-Threads.git",
   },
   // TODO: fill in real description, tech, image, and links once available
   {
