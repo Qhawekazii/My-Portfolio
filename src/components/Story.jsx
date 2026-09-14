@@ -28,43 +28,29 @@ function Story() {
 
         <div className="story-text">
           <p>
-            Hi, I'm Emily Qhawekazi Maramani, an aspiring Full Stack Developer with a
-            passion for building web and mobile applications that are both functional
-            and user-focused.
+            I'm Emily Qhawekazi Maramani — a Full Stack Developer with a mother's
+            radar for spotting problems early, and a builder's habit of fixing them
+            before anyone has to ask.
           </p>
           <p>
-            My approach to development is shaped by both hands-on experience and
-            curiosity. I value creating inclusive environments where collaboration
-            thrives, and I take pride in being someone who ensures that no one is left
-            behind when working on a task or solving a problem. I am determined,
-            solution-oriented, and able to analyse challenges in order to find
-            effective outcomes.
+            I'm shaped more by curiosity than comfort. When something breaks or
+            doesn't make sense, I research it, ask for help without ego, and take
+            intentional breaks so I come back sharper — not stuck.
           </p>
           <p>
-            When working through difficult problems, I rely on research, asking for
-            help when needed, and taking intentional breaks to return with a clearer
-            and more focused mindset.
+            On a team, I'm the one making sure no one gets left behind on a task:
+            talkative, bubbly, and genuinely energised by solving problems with
+            people, not just for them.
           </p>
           <p>
-            Outside of coding, I value family, faith, personal growth, continuous
-            learning, creativity, and fitness. These values ground me and influence
-            how I approach both life and work.
+            Outside the editor: family, faith, fitness, and being a mother — the
+            parts of my life that taught me discipline and resilience long before a
+            sprint retro ever did.
           </p>
           <p>
-            I am also a mother, which has strengthened my resilience, discipline, and
-            sense of purpose. It has taught me how to balance responsibility while
-            still pursuing personal and professional growth.
-          </p>
-          <p>
-            In collaborative environments, I am often described as talkative, bubbly,
-            and engaging. I enjoy creating energy in a room and contributing to a
-            positive, interactive team dynamic.
-          </p>
-          <p>
-            Ultimately, I am someone who believes that growth happens through
-            discomfort, consistency, and curiosity. I am proud of the person and
-            mother I am becoming while continuing to grow into a well-rounded
-            developer.
+            Growth happens in discomfort, so I keep choosing hard things on purpose.
+            I'm proud of the developer I'm becoming — and this is very much still
+            in progress.
           </p>
         </div>
       </div>
