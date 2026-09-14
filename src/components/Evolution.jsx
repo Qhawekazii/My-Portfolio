@@ -2,22 +2,22 @@ import { useReveal } from "../hooks/useReveal.js"
 
 const STEPS = [
   {
-    year: "2023",
+    stage: "01",
     title: "HTML / CSS",
     desc: "Learned the foundations of the web — structure, styling and how a page really comes together.",
   },
   {
-    year: "2024",
+    stage: "02",
     title: "JavaScript / Git / UI",
     desc: "Started bringing pages to life with logic and interaction, and learned to manage my work properly with Git.",
   },
   {
-    year: "2025",
+    stage: "03",
     title: "Kotlin / Android / Figma",
     desc: "Moved into mobile development and design tools, learning to design and build Android apps end to end.",
   },
   {
-    year: "2026",
+    stage: "04",
     title: "React / Full Stack / APIs / Databases",
     desc: "Currently building full stack applications — connecting React interfaces to real APIs and databases.",
   },
@@ -39,7 +39,7 @@ function TimelineItem({ step }) {
   return (
     <li className="timeline-item reveal" ref={ref}>
       <span className="timeline-node" />
-      <div className="timeline-year">{step.year}</div>
+      <div className="timeline-stage">Stage {step.stage}</div>
       <h3 className="timeline-title">{step.title}</h3>
       <p className="timeline-desc">{step.desc}</p>
     </li>
@@ -52,12 +52,12 @@ function Evolution() {
       <span className="section-num">03 / 05</span>
       <div className="section-head">
         <span className="eyebrow">My Evolution</span>
-        <h2>Growth, one year at a time.</h2>
+        <h2>Growth, one stage at a time.</h2>
       </div>
 
       <ul className="timeline">
         {STEPS.map((step) => (
-          <TimelineItem key={step.year} step={step} />
+          <TimelineItem key={step.stage} step={step} />
         ))}
       </ul>
 
