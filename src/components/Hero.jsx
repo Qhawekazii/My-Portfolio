@@ -1,5 +1,6 @@
 import heroBg from "../assets/hero.jpg"
 import { useTypewriter } from "../hooks/useTypewriter.js"
+import { CV_PATH } from "../data/cv.js"
 
 const ROLES = ["UI/UX Designer", "Fullstack Developer"]
 
@@ -37,15 +38,21 @@ function Hero() {
 
         <div className="hero-actions">
           <a
-            href="#story"
-            className="btn-enter"
+            className="cv-btn primary"
+            href={CV_PATH}
+            target="_blank"
+            rel="noreferrer"
             data-cursor="hover"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById("story")?.scrollIntoView({ behavior: "smooth" })
-            }}
           >
-            Enter Portfolio ↗
+            View CV ↗
+          </a>
+          <a
+            className="cv-btn secondary"
+            href={CV_PATH}
+            download="Emily_Qhawekazi_Maramani_CV.pdf"
+            data-cursor="hover"
+          >
+            Download ↓
           </a>
         </div>
       </div>

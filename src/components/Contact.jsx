@@ -115,7 +115,7 @@ function Contact() {
 
       <div className="footer-bar">
         <span>© 2026 Emily Qhawekazi Maramani</span>
-        <span>Built with React</span>
+        <span>Designed & built by me, end to end.</span>
       </div>
     </section>
   )

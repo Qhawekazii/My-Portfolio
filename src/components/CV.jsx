@@ -1,11 +1,10 @@
-const CV_PATH = "/Emily_Maramani_ATS_CV_With_Projects.pdf"
+import { CV_PATH } from "../data/cv.js"
 
 function CV() {
   return (
     <section id="cv" className="cv-section">
       <div>
         <span className="eyebrow">CV</span>
-        <h2 className="cv-title">Want to know more?</h2>
         <p className="cv-desc">
           Explore my experience, technical skills, projects and professional journey.
         </p>

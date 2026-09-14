@@ -380,7 +380,6 @@ h1, h2, h3, h4 {
 .nav-overlay-footer a,
 .project-links a,
 .contact-block a,
-.btn-enter,
 .cv-btn,
 .contact-submit,
 .learning-pill,
@@ -674,6 +673,7 @@ h1, h2, h3, h4 {
   --text: #ffffff;
   --text-dim: #cfd8e3;
   --text-mute: #8891a4;
+  --border-strong: rgba(255, 255, 255, 0.16);
 
   min-height: 100vh;
   display: flex;
@@ -809,27 +809,6 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 30px;
   flex-wrap: wrap;
-}
-
-.btn-enter {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--heading-font);
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  padding: 16px 30px;
-  border-radius: 100px;
-  border: 1px solid var(--teal);
-  color: var(--teal);
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-enter:hover,
-.btn-enter:focus-visible {
-  background: var(--teal);
-  color: #041014;
-  box-shadow: 0 0 30px rgba(0, 255, 242, 0.4);
 }
 
 .hero-foot {
@@ -1213,15 +1192,10 @@ h1, h2, h3, h4 {
   border-bottom: 1px solid var(--border);
 }
 
-.cv-title {
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  max-width: 560px;
-}
-
 .cv-desc {
   color: var(--text-dim);
   max-width: 420px;
-  margin-top: 18px;
+  margin-top: 14px;
   line-height: 1.7;
 }
 
