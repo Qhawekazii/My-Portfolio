@@ -22,25 +22,27 @@ function Story() {
       </div>
 
       <div className="story reveal" ref={ref}>
-        <div className="story-photo" data-cursor="hover">
-          <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
-        </div>
-
         <div className="story-text">
           <p>
-            I'm Emily Qhawekazi Maramani — a Full Stack Developer with a mother's
-            radar for spotting problems early, and a builder's habit of fixing them
-            before anyone has to ask.
+            I'm Emily Qhawekazi Maramani. Most days that means finding the bug
+            nobody flagged, the edge case nobody tested, the state nobody
+            handled — and building the fix before it becomes someone else's
+            problem.
           </p>
           <p>
-            Curious over comfortable. I research, ask for help without ego, and
-            show up for my team — the one making sure no one gets left behind.
+            Off-screen, I'm a mother first — which is its own crash course in
+            noticing what's about to go wrong before it does, staying calm when
+            it does anyway, and fixing things with whatever's on hand.
           </p>
           <p>
-            Family, faith, fitness, and motherhood taught me discipline long before
-            agile did. Growth lives in discomfort, so I keep choosing hard things —
-            and I'm just getting started.
+            Family, faith, and fitness keep me grounded; curiosity keeps me
+            building. I'm still finding new gaps to notice — and that's the
+            part I actually love.
           </p>
+        </div>
+
+        <div className="story-photo" data-cursor="hover">
+          <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
         </div>
       </div>
     </section>
