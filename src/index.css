@@ -1148,8 +1148,8 @@ h1, h2, h3, h4 {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(260px, 420px) 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: 120px;
   align-items: start;
 }
 
