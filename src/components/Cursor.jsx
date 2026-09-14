@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 // Matching this broadly (rather than tagging every element by hand) means
 // new buttons/links/cards automatically pick up the reaction for free.
 const TOUCH_SELECTOR =
-  "a, button, input, textarea, .project-visual, .learning-pill, .project-tech span, [data-cursor='hover']"
+  "a, button, input, textarea, .project-visual, .learning-pill, .project-tech span, .role-pill, [data-cursor='hover']"
 
 function Cursor() {
   const [pos, setPos] = useState({ x: -100, y: -100 })

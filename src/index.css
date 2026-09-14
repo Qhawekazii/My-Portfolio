@@ -384,6 +384,7 @@ h1, h2, h3, h4 {
 .contact-submit,
 .learning-pill,
 .project-tech span,
+.role-pill,
 .contact-form input,
 .contact-form textarea {
   position: relative;
@@ -804,17 +805,54 @@ h1, h2, h3, h4 {
   align-items: start;
 }
 
+.story-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid var(--border-strong);
+  background: var(--panel);
+  font-family: var(--heading-font);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+}
+
+.story-photo-col {
+  transform: translateY(-48px);
+}
+
 .story-photo {
   position: sticky;
   top: 120px;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid var(--border);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
 }
 
 .story-photo img {
   width: 100%;
   filter: saturate(0.85);
+}
+
+.story-photo-caption {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--heading-font);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  text-align: center;
 }
 
 .story-text p {
@@ -836,7 +874,8 @@ h1, h2, h3, h4 {
 
 @media (max-width: 900px) {
   .story { grid-template-columns: 1fr; gap: 34px; }
-  .story-photo { position: static; max-width: 260px; order: -1; }
+  .story-photo-col { transform: none; order: -1; max-width: 260px; }
+  .story-photo { position: static; }
 }
 
 /* ==========================================================

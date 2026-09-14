@@ -1,5 +1,11 @@
 import portrait from "../assets/me2.jpg"
 import { useReveal } from "../hooks/useReveal.js"
+import { Palette, Code2 } from "lucide-react"
+
+const ROLES = [
+  { label: "UI/UX Designer", Icon: Palette },
+  { label: "Full-Stack Developer", Icon: Code2 },
+]
 
 function Story() {
   const ref = useReveal()
@@ -23,11 +29,20 @@ function Story() {
 
       <div className="story reveal" ref={ref}>
         <div className="story-text">
+          <div className="story-roles">
+            {ROLES.map(({ label, Icon }) => (
+              <span className="role-pill" key={label}>
+                <Icon size={15} strokeWidth={2} />
+                {label}
+              </span>
+            ))}
+          </div>
+
           <p>
-            I'm Emily Qhawekazi Maramani. Most days that means finding the bug
-            nobody flagged, the edge case nobody tested, the state nobody
-            handled — and building the fix before it becomes someone else's
-            problem.
+            I'm Emily Qhawekazi Maramani — I design the interface and build
+            the code behind it, which means I notice the bug nobody flagged,
+            the edge case nobody tested, and the layout that just feels off,
+            then fix all of it myself.
           </p>
           <p>
             Off-screen, I'm a mother first — which is its own crash course in
@@ -41,8 +56,11 @@ function Story() {
           </p>
         </div>
 
-        <div className="story-photo" data-cursor="hover">
-          <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
+        <div className="story-photo-col">
+          <div className="story-photo" data-cursor="hover">
+            <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
+          </div>
+          <span className="story-photo-caption">Emily — UI/UX Designer & Developer</span>
         </div>
       </div>
     </section>
