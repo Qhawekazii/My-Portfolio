@@ -87,18 +87,18 @@ function Contact() {
 
   return (
     <section id="contact">
-      <div className="contact-head">
-        <span className="eyebrow">Contact</span>
-        <h2>
-          Let's<br />build<br />something.
-        </h2>
-        <p className="contact-tagline">
-          Got a role, a project, or just want to say hi? I read every message
-          myself — reach out directly or send it through the form.
-        </p>
-      </div>
-
       <div className="contact-grid">
+        <div className="contact-head">
+          <span className="eyebrow">Contact</span>
+          <h2>
+            Let's<br />build<br />something.
+          </h2>
+          <p className="contact-tagline">
+            Got a role, a project, or just want to say hi? I read every message
+            myself — reach out directly or send it through the form.
+          </p>
+        </div>
+
         <form className="contact-form" onSubmit={handleSubmit} noValidate>
           <input
             type="text"
@@ -130,40 +130,40 @@ function Contact() {
             {status.text}
           </p>
         </form>
+      </div>
 
-        <div className="contact-block">
-          <h4>Find me here</h4>
-          <div className="contact-socials">
-            {SOCIALS.map(({ label, href, copy, Icon, external }) => (
-              <div className="contact-social-wrap" key={label}>
-                {copy ? (
-                  <button
-                    type="button"
-                    className="contact-social"
-                    aria-label={`Copy ${label} username`}
-                    title={`Copy ${label} username`}
-                    data-cursor="hover"
-                    onClick={() => copyToClipboard(label, copy)}
-                  >
-                    <Icon size={20} />
-                  </button>
-                ) : (
-                  <a
-                    href={href}
-                    target={external ? "_blank" : undefined}
-                    rel={external ? "noreferrer" : undefined}
-                    className="contact-social"
-                    aria-label={label}
-                    title={label}
-                    data-cursor="hover"
-                  >
-                    <Icon size={20} />
-                  </a>
-                )}
-                {copiedLabel === label && <span className="contact-social-copied">Copied!</span>}
-              </div>
-            ))}
-          </div>
+      <div className="contact-block">
+        <h4>Find me here</h4>
+        <div className="contact-socials">
+          {SOCIALS.map(({ label, href, copy, Icon, external }) => (
+            <div className="contact-social-wrap" key={label}>
+              {copy ? (
+                <button
+                  type="button"
+                  className="contact-social"
+                  aria-label={`Copy ${label} username`}
+                  title={`Copy ${label} username`}
+                  data-cursor="hover"
+                  onClick={() => copyToClipboard(label, copy)}
+                >
+                  <Icon size={20} />
+                </button>
+              ) : (
+                <a
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noreferrer" : undefined}
+                  className="contact-social"
+                  aria-label={label}
+                  title={label}
+                  data-cursor="hover"
+                >
+                  <Icon size={20} />
+                </a>
+              )}
+              {copiedLabel === label && <span className="contact-social-copied">Copied!</span>}
+            </div>
+          ))}
         </div>
       </div>
 

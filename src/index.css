@@ -1135,23 +1135,26 @@ h1, h2, h3, h4 {
    CONTACT
    ========================================================== */
 .contact-head h2 {
-  font-size: clamp(2.6rem, 9vw, 6.5rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   line-height: 0.98;
 }
 
 .contact-tagline {
-  max-width: 480px;
+  max-width: 420px;
   margin-top: 22px;
   color: var(--text-dim);
   line-height: 1.7;
 }
 
 .contact-grid {
-  margin-top: 60px;
   display: grid;
-  grid-template-columns: 1fr minmax(180px, 260px);
+  grid-template-columns: minmax(260px, 420px) 1fr;
   gap: 60px;
   align-items: start;
+}
+
+.contact-block {
+  margin-top: 50px;
 }
 
 .contact-block h4 {
@@ -1217,17 +1220,12 @@ h1, h2, h3, h4 {
 
 .contact-form {
   max-width: 480px;
-  margin-left: 8%;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-@media (max-width: 700px) {
-  .contact-form { margin-left: 0; }
-}
-
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .contact-grid { grid-template-columns: 1fr; gap: 36px; }
 }
 
