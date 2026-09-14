@@ -1,18 +1,12 @@
 // PROJECT DATA
-// ------------
-// This is the only file you need to touch to add, remove or edit projects.
-// Add a new object to the array below and it will automatically appear
-// in the "Selected Work" section, in the order listed here.
-//
 // image        -> import the image at the top of the file, then reference it here
 // tech         -> array of short tags shown under the project name
 // live / github -> leave as "" (empty string) if a link doesn't exist yet,
 //                   the button will simply be hidden
 
 import kindernest from "../assets/kindernest.png"
-import metube from "../assets/metube.jfif"
-import netflip from "../assets/netflip.jfif"
 import ihub from "../assets/iHubLogo.webp"
+import pawfinder from "../assets/pawfinder-paw.svg"
 
 const projects = [
   {
@@ -50,7 +44,7 @@ const projects = [
     name: "PawFinder",
     type: "WEB / REACT",
     tech: ["React", "REST API", "Context API", "Custom Hooks"],
-    image: null,
+    image: pawfinder,
     description:
       "A React dog breed explorer built with Context API, custom hooks, REST API data, and a responsive interface.",
     problem:
@@ -60,35 +54,41 @@ const projects = [
     live: "https://react-dog-search-app.vercel.app/",
     github: "https://github.com/hlatsiboy113-png/react-dog-search-app.git",
   },
+  // TODO: fill in real description, tech, image, and links once available
   {
     number: "04",
-    name: "Netflip Clone",
-    type: "WEB / UI DESIGN",
-    tech: ["HTML", "CSS", "JavaScript"],
-    image: netflip,
-    description:
-      "A Netflix-inspired landing page clone focused on polished visuals and a smooth, high-impact user experience.",
-    problem:
-      "Matching the visual feel of a streaming platform while making sure the layout stayed fully responsive.",
-    learned:
-      "Sharpened my UI design instincts and my responsive web development skills.",
-    live: "https://netflip-clone.netlify.app/",
-    github: "https://github.com/Qhawekazii/Netflip",
+    name: "Urban Threads",
+    type: "WEB / E-COMMERCE",
+    tech: [],
+    image: "",
+    description: "My first e-commerce build. Full description and tech stack coming soon.",
+    live: "",
+    github: "",
+    status: { type: "progress", label: "Details Coming Soon" },
   },
+  // TODO: fill in real description, tech, image, and links once available
   {
     number: "05",
-    name: "MeTube Clone",
-    type: "WEB / UI DESIGN",
-    tech: ["HTML", "CSS", "JavaScript"],
-    image: metube,
-    description:
-      "A YouTube-inspired clone built to practise layout structure, responsive design and media-focused UI patterns.",
-    problem:
-      "Recreating the styling and structure of a media-heavy interface while keeping every section responsive.",
-    learned:
-      "Improved my frontend layout skills and attention to detail on dense, content-heavy pages.",
+    name: "Firestone",
+    type: "BACKEND",
+    tech: [],
+    image: "",
+    description: "A backend project. Full description and tech stack coming soon.",
     live: "",
-    github: "https://github.com/Qhawekazii/MeTube-Clone.git",
+    github: "",
+    status: { type: "progress", label: "Details Coming Soon" },
+  },
+  // TODO: rename once you give me the real project name, and fill in details when live
+  {
+    number: "06",
+    name: "Football Project",
+    type: "CLIENT PROJECT",
+    tech: [],
+    image: "",
+    description: "A client project currently in progress.",
+    live: "",
+    github: "",
+    status: { type: "progress", label: "In Progress" },
   },
 ]
 
