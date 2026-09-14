@@ -376,10 +376,10 @@ h1, h2, h3, h4 {
    No mix-blend-mode here on purpose: it stays visible on both the
    light and dark themes instead of washing out on light surfaces.
    ========================================================== */
-.nav-list a,
-.nav-overlay-footer a,
 .project-links a,
 .contact-block a,
+.contact-social,
+.side-nav-item,
 .cv-btn,
 .contact-submit,
 .learning-pill,
@@ -440,8 +440,10 @@ h1, h2, h3, h4 {
 
 /* ==========================================================
    NAVIGATION
+   A vertical icon dock on the right edge instead of a hamburger +
+   fullscreen overlay — hover (or focus) an icon to see its label.
    ========================================================== */
-.nav-toggle,
+.side-nav,
 .theme-toggle,
 .cursor-dot,
 .cursor-ring {
@@ -453,11 +455,28 @@ h1, h2, h3, h4 {
   --border-strong: rgba(255, 255, 255, 0.16);
 }
 
-.nav-toggle {
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.side-nav-item-wrap {
   position: relative;
-  order: 2;
-  width: 56px;
-  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.side-nav-item {
+  position: relative;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 1px solid var(--border-strong);
   background: rgba(10, 14, 26, 0.55);
@@ -465,26 +484,58 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--heading-font);
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.02em;
-  transition: border-color 0.3s ease, transform 0.3s var(--ease);
+  color: var(--text-mute);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease,
+    transform 0.3s var(--ease);
 }
 
-.nav-toggle:hover {
+.side-nav-item:hover,
+.side-nav-item:focus-visible {
   border-color: var(--teal);
-  transform: scale(1.06);
+  color: var(--teal);
+  transform: scale(1.08);
 }
 
-.nav-toggle-wrap {
-  position: fixed;
-  top: 32px;
-  right: 32px;
-  z-index: 900;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.side-nav-item:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.side-nav-item.active {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: rgba(0, 255, 242, 0.1);
+}
+
+.side-nav-label {
+  position: absolute;
+  right: calc(100% + 14px);
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: rgba(10, 14, 26, 0.85);
+  border: 1px solid var(--border-strong);
+  padding: 7px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s var(--ease);
+}
+
+.side-nav-item-wrap:hover .side-nav-label,
+.side-nav-item:focus-visible + .side-nav-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 560px) {
+  .side-nav { right: 16px; gap: 10px; }
+  .side-nav-item { width: 40px; height: 40px; }
+  .side-nav-label { display: none; }
 }
 
 .theme-toggle {
@@ -521,146 +572,6 @@ h1, h2, h3, h4 {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
-
-.nav-toggle-label {
-  font-family: var(--heading-font);
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  transition: color 0.3s ease;
-}
-
-.nav-toggle-wrap:hover .nav-toggle-label {
-  color: var(--teal);
-}
-
-.nav-toggle:focus-visible {
-  outline: 2px solid var(--teal);
-  outline-offset: 3px;
-}
-
-.nav-toggle::before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  transition: border-color 0.4s ease, transform 0.6s var(--ease);
-}
-
-.nav-toggle:hover::before {
-  border-color: var(--teal);
-  transform: rotate(90deg);
-}
-
-.nav-toggle .mark {
-  font-family: var(--heading-font);
-  background: linear-gradient(120deg, var(--teal), var(--pink));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  transition: opacity 0.25s ease, transform 0.25s var(--ease);
-}
-
-.nav-toggle .close-mark {
-  position: absolute;
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: var(--text);
-  opacity: 0;
-  transform: scale(0.6) rotate(-45deg);
-  transition: opacity 0.25s ease, transform 0.25s var(--ease);
-}
-
-.nav-toggle.open .mark {
-  opacity: 0;
-  transform: scale(0.6);
-}
-
-.nav-toggle.open .close-mark {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-}
-
-.nav-overlay {
-  /* full-bleed dark menu stays consistent regardless of theme */
-  --teal: #00fff2;
-  --pink: #ff4ecb;
-  --text: #ffffff;
-  --text-dim: #cfd8e3;
-  --text-mute: #8891a4;
-
-  position: fixed;
-  inset: 0;
-  z-index: 890;
-  background: rgba(6, 9, 18, 0.97);
-  backdrop-filter: blur(14px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 8% 10%;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-12px);
-  transition: opacity 0.45s var(--ease), transform 0.45s var(--ease), visibility 0.45s;
-}
-
-.nav-overlay.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.nav-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.nav-list li {
-  overflow: hidden;
-}
-
-.nav-list a {
-  display: flex;
-  align-items: baseline;
-  gap: 22px;
-  font-family: var(--heading-font);
-  font-size: clamp(1.8rem, 6vw, 3.6rem);
-  font-weight: 600;
-  color: var(--text-dim);
-  padding: 10px 0;
-  transition: color 0.3s ease, transform 0.3s var(--ease);
-  transform: translateY(100%);
-}
-
-.nav-overlay.open .nav-list a {
-  transform: translateY(0);
-}
-
-.nav-list a .idx {
-  font-family: var(--heading-font);
-  font-size: 0.9rem;
-  color: var(--teal);
-  letter-spacing: 0.1em;
-}
-
-.nav-list a:hover,
-.nav-list a:focus-visible {
-  color: var(--text);
-}
-
-.nav-overlay-footer {
-  margin-top: 60px;
-  display: flex;
-  gap: 26px;
-  flex-wrap: wrap;
-  font-size: 0.85rem;
-  color: var(--text-mute);
-}
-
-.nav-overlay-footer a:hover { color: var(--pink); }
 
 /* ==========================================================
    HERO
@@ -759,9 +670,10 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
   margin: 26px 0 22px;
   font-family: var(--heading-font);
-  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
-  letter-spacing: 0.05em;
-  color: var(--text-dim);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--pink);
   min-height: 1.4em;
 }
 
@@ -775,7 +687,7 @@ h1, h2, h3, h4 {
   width: 2px;
   height: 1em;
   margin-left: 4px;
-  background: var(--teal);
+  background: var(--pink);
   animation: caretBlink 1s step-end infinite;
 }
 
@@ -1254,6 +1166,37 @@ h1, h2, h3, h4 {
 
 .contact-block a:hover {
   color: var(--teal);
+}
+
+.contact-socials {
+  display: flex;
+  gap: 14px;
+}
+
+.contact-block .contact-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--panel);
+  color: var(--text-dim);
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.contact-block .contact-social:hover,
+.contact-block .contact-social:focus-visible {
+  border-color: var(--pink);
+  color: var(--pink);
+  transform: translateY(-3px);
+}
+
+.contact-block .contact-social:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
 }
 
 .contact-form {

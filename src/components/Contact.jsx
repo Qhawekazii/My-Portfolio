@@ -1,7 +1,18 @@
 import { useState } from "react"
+import { FaGithub, FaLinkedin, FaEnvelope, FaDiscord } from "react-icons/fa"
 
 const EMAIL = "emilym01@gmail.com"
 const GITHUB = "https://github.com/Qhawekazii"
+// TODO: swap in the real profile links once available
+const LINKEDIN = ""
+const DISCORD = ""
+
+const SOCIALS = [
+  { label: "Email", href: `mailto:${EMAIL}`, Icon: FaEnvelope, external: false },
+  { label: "GitHub", href: GITHUB, Icon: FaGithub, external: true },
+  { label: "LinkedIn", href: LINKEDIN, Icon: FaLinkedin, external: true },
+  { label: "Discord", href: DISCORD, Icon: FaDiscord, external: true },
+].filter((social) => social.href)
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" })
@@ -76,8 +87,23 @@ function Contact() {
           <h4>Email</h4>
           <a href={`mailto:${EMAIL}`} data-cursor="hover">{EMAIL}</a>
 
-          <h4 style={{ marginTop: 28 }}>GitHub</h4>
-          <a href={GITHUB} target="_blank" rel="noreferrer" data-cursor="hover">{GITHUB}</a>
+          <h4 style={{ marginTop: 28 }}>Find me here</h4>
+          <div className="contact-socials">
+            {SOCIALS.map(({ label, href, Icon, external }) => (
+              <a
+                key={label}
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noreferrer" : undefined}
+                className="contact-social"
+                aria-label={label}
+                title={label}
+                data-cursor="hover"
+              >
+                <Icon size={20} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 

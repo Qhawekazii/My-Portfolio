@@ -1,70 +1,58 @@
 import { useEffect, useState } from "react"
+import { Home, User, TrendingUp, Briefcase, Mail } from "lucide-react"
 
 const LINKS = [
-  { idx: "01", label: "Home", id: "home" },
-  { idx: "02", label: "My Story", id: "story" },
-  { idx: "03", label: "My Evolution", id: "evolution" },
-  { idx: "04", label: "Work", id: "work" },
-  { idx: "05", label: "Contact", id: "contact" },
+  { label: "Home", id: "home", Icon: Home },
+  { label: "My Story", id: "story", Icon: User },
+  { label: "My Evolution", id: "evolution", Icon: TrendingUp },
+  { label: "Work", id: "work", Icon: Briefcase },
+  { label: "Contact", id: "contact", Icon: Mail },
 ]
 
 function Navigation() {
-  const [open, setOpen] = useState(false)
+  const [active, setActive] = useState("home")
 
-  // lock background scroll while the overlay is open
+  // highlight whichever section is most in view as the user scrolls
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : ""
-    return () => { document.body.style.overflow = "" }
-  }, [open])
+    const sections = LINKS.map((link) => document.getElementById(link.id)).filter(Boolean)
+    if (!sections.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const mostVisible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (mostVisible) setActive(mostVisible.target.id)
+      },
+      { threshold: [0.3, 0.5, 0.7] }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
 
   const goTo = (id) => {
-    setOpen(false)
-    const el = document.getElementById(id)
-    if (el) {
-      setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 250)
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <>
-      <div className="nav-toggle-wrap">
-        <span className="nav-toggle-label">{open ? "Close" : "Menu"}</span>
-        <button
-          className={`nav-toggle ${open ? "open" : ""}`}
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-        >
-          <span className="mark">Q</span>
-          <span className="close-mark" aria-hidden="true">×</span>
-        </button>
-      </div>
-
-      <nav className={`nav-overlay ${open ? "open" : ""}`} aria-hidden={!open}>
-        <ul className="nav-list">
-          {LINKS.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                tabIndex={open ? 0 : -1}
-                onClick={(e) => {
-                  e.preventDefault()
-                  goTo(link.id)
-                }}
-              >
-                <span className="idx">{link.idx}</span>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="nav-overlay-footer">
-          <a href="mailto:emilym01@gmail.com">emilym01@gmail.com</a>
-          <a href="https://github.com/Qhawekazii" target="_blank" rel="noreferrer">GitHub</a>
+    <nav className="side-nav" aria-label="Section navigation">
+      {LINKS.map(({ label, id, Icon }) => (
+        <div className="side-nav-item-wrap" key={id}>
+          <button
+            type="button"
+            className={`side-nav-item ${active === id ? "active" : ""}`}
+            onClick={() => goTo(id)}
+            aria-label={label}
+            aria-current={active === id ? "true" : undefined}
+            data-cursor="hover"
+          >
+            <Icon size={19} strokeWidth={1.75} />
+          </button>
+          <span className="side-nav-label" aria-hidden="true">{label}</span>
         </div>
-      </nav>
-    </>
+      ))}
+    </nav>
   )
 }
 

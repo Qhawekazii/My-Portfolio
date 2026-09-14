@@ -20,7 +20,7 @@ function Hero() {
         </div>
 
         <h1 className="hero-name">
-          Emily
+          Hi, I'm
           <span>Qhawekazi</span>
         </h1>
 
