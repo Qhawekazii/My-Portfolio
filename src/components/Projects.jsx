@@ -1,15 +1,13 @@
 import projects from "../data/projects.js"
 import { useReveal } from "../hooks/useReveal.js"
-import { useGlowHover } from "../hooks/useGlowHover.js"
 
 function ProjectEntry({ project }) {
   const ref = useReveal()
-  const { ref: glowRef, onMouseMove: onGlowMove } = useGlowHover()
   const status = project.status
 
   return (
     <article className="project-card reveal" ref={ref} data-cursor="project">
-      <div className="project-visual glow-hover" ref={glowRef} onMouseMove={onGlowMove}>
+      <div className="project-visual">
         {project.image ? (
           <img src={project.image} alt={project.name} loading="lazy" />
         ) : (
@@ -53,7 +51,7 @@ function Projects() {
     <section id="work">
       <span className="section-num">04 / 06</span>
       <div className="section-head">
-        <span className="eyebrow">Selected Work</span>
+        <span className="eyebrow">Projects</span>
         <h2>Selected Work.</h2>
       </div>
 

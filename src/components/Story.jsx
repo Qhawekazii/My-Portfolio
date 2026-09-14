@@ -1,11 +1,9 @@
 import portrait from "../assets/me2.jpg"
 import { useReveal } from "../hooks/useReveal.js"
-import { useGlowHover } from "../hooks/useGlowHover.js"
 
 function Story() {
   const ref = useReveal()
   const philosophyRef = useReveal()
-  const { ref: photoGlowRef, onMouseMove: onPhotoGlowMove } = useGlowHover()
 
   return (
     <section id="story">
@@ -24,12 +22,7 @@ function Story() {
       </div>
 
       <div className="story reveal" ref={ref}>
-        <div
-          className="story-photo glow-hover"
-          ref={photoGlowRef}
-          onMouseMove={onPhotoGlowMove}
-          data-cursor="hover"
-        >
+        <div className="story-photo" data-cursor="hover">
           <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
         </div>
 
