@@ -40,7 +40,7 @@ function Loader({ onComplete }) {
         </div>
 
         <div className="loader-bottom">
-          <span>QHAWEKAZI</span>
+          <span>Welcome To Q's Portfolio</span>
           <span>{progress}%</span>
         </div>
 
