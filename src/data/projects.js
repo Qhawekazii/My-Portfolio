@@ -3,15 +3,60 @@
 // tech         -> array of short tags shown under the project name
 // live / github -> leave as "" (empty string) if a link doesn't exist yet,
 //                   the button will simply be hidden
+// caseStudy     -> link to the written case study (shown as a "Case study" button)
+// private       -> true for client repos: shows "Private repo" instead of a GitHub link
 
 import kindernest from "../assets/kindernest.png"
 import ihub from "../assets/iHubLogo.webp"
 import pawfinder from "../assets/pawfinder-paw.svg"
 import urbanThreads from "../assets/UrbanThreads.png"
+import undeplus from "../assets/undeplus.jpg"
+import stFrusquin from "../assets/stfrusquin-crest.jpeg"
 
 const projects = [
   {
-    number: "01",
+    name: "iHub Comms",
+    type: "PRODUCT ENGINEERING / UI/UX / TEAM",
+    tech: ["Product Design", "UI/UX", "React", "Supabase", "Row Level Security"],
+    image: ihub,
+    description:
+      "My idea and my design: one invite-only platform for iHub covering announcements, chat, tasks, submissions, schedule, attendance, courses and notes. I owned the product and all UI/UX, then built it with my team, CTRL + Create, and pitched it to iHub for internal use.",
+    problem:
+      "iHub was paying subscriptions for several platforms that each covered one slice of a cohort's needs, and learners missed deadlines because information was spread across all of them.",
+    live: "",
+    github: "",
+    private: true,
+    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/ihub-comms.md",
+  },
+  {
+    name: "Un De Plus Tours",
+    type: "EXISTING CLIENT / SOLO / FULL-STACK",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Supabase", "jsPDF"],
+    image: undeplus,
+    description:
+      "Turned a broken template site into one that takes bookings: every form saved to a database with an admin dashboard, a trip planner with PDF / email / Google Docs export, 19 languages and an accessibility widget.",
+    problem:
+      "Booking and contact forms submitted nowhere, so every enquiry from an international visitor was silently lost.",
+    live: "https://unde-plus.co.za",
+    github: "",
+    private: true,
+    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/un-de-plus.md",
+  },
+  {
+    name: "St Frusquin Sporting",
+    type: "CLIENT / SOLO / FRONTEND",
+    tech: ["React", "Vite", "CSS Modules", "Formspree", "Accessibility"],
+    image: stFrusquin,
+    description:
+      "Website for a five-division community football club: fixtures, squads and gallery by division, official league links, and a working contact form.",
+    problem:
+      "Parents browse on limited mobile data, so I cut the first load from 32 MB to 3.9 MB and met WCAG AA contrast.",
+    live: "https://st-frusquin-sporting.vercel.app",
+    github: "",
+    private: true,
+    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/st-frusquin-sporting.md",
+  },
+  {
     name: "KinderNest",
     type: "WEB / UI DESIGN",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -26,7 +71,6 @@ const projects = [
     github: "https://github.com/St10482946/kindernest",
   },
   {
-    number: "02",
     name: "iHub Prototype",
     type: "WEB / TEAM PROJECT",
     tech: ["HTML", "CSS", "JavaScript", "Collaboration"],
@@ -41,7 +85,6 @@ const projects = [
     github: "https://github.com/kmukendi10/Client-Website-Prototype-iHub",
   },
   {
-    number: "03",
     name: "PawFinder",
     type: "WEB / REACT",
     tech: ["React", "REST API", "Context API", "Custom Hooks"],
@@ -56,7 +99,6 @@ const projects = [
     github: "https://github.com/hlatsiboy113-png/react-dog-search-app.git",
   },
   {
-    number: "04",
     name: "Urban Threads",
     type: "WEB / E-COMMERCE",
     tech: ["HTML", "CSS", "JavaScript", "Firebase Firestore", "Firebase Auth"],
@@ -68,7 +110,6 @@ const projects = [
   },
   // TODO: fill in real description, tech, image, and links once available
   {
-    number: "05",
     name: "Firestone",
     type: "BACKEND",
     tech: [],
@@ -78,18 +119,7 @@ const projects = [
     github: "",
     status: { type: "progress", label: "Details Coming Soon" },
   },
-  // TODO: rename once you give me the real project name, and fill in details when live
-  {
-    number: "06",
-    name: "Football Project",
-    type: "CLIENT PROJECT",
-    tech: [],
-    image: "",
-    description: "A client project currently in progress.",
-    live: "",
-    github: "",
-    status: { type: "progress", label: "In Progress" },
-  },
+
 ]
 
-export default projects
+export default projects.map((p, i) => ({ ...p, number: String(i + 1).padStart(2, "0") }))
