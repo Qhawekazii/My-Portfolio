@@ -2,7 +2,7 @@ import heroBg from "../assets/hero.jpg"
 import { useTypewriter } from "../hooks/useTypewriter.js"
 import { CV_PATH } from "../data/cv.js"
 
-const ROLES = ["UI/UX Designer", "Fullstack Developer"]
+const ROLES = ["Product Engineer", "UI/UX Designer", "Full-Stack Developer"]
 
 function Hero() {
   const typed = useTypewriter(ROLES)
@@ -30,10 +30,10 @@ function Hero() {
             <span className="caret" />
           </span>
         </div>
-        <p className="sr-only">I am a UI/UX Designer and Fullstack Developer.</p>
+        <p className="sr-only">I am a Product Engineer, UI/UX Designer and Full-Stack Developer.</p>
 
         <p className="hero-tagline">
-          I design, build and continuously evolve through technology.
+          I see the gaps and fill them. I design for the people who will use it, then build it until it ships.
         </p>
 
         <div className="hero-actions">

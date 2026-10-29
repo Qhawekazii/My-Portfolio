@@ -1,8 +1,9 @@
 import portrait from "../assets/me2.jpg"
 import { useReveal } from "../hooks/useReveal.js"
-import { Palette, Code2 } from "lucide-react"
+import { Palette, Code2, Lightbulb } from "lucide-react"
 
 const ROLES = [
+  { label: "Product Engineer", Icon: Lightbulb },
   { label: "UI/UX Designer", Icon: Palette },
   { label: "Full-Stack Developer", Icon: Code2 },
 ]
@@ -21,9 +22,10 @@ function Story() {
 
       <div className="philosophy reveal" ref={philosophyRef}>
         <p>
-          <span>I notice the gaps</span> most people scroll past —
-          the awkward flow, the missing state, the click that should exist but doesn't.
-          <span> Then I build the fix.</span>
+          <span>A dentist sees a cavity and fills it.</span> I see the gaps
+          in the digital world — the awkward flow, the missing state, the tool a team
+          pays for that still doesn't do the job —
+          <span> and I fill them.</span>
         </p>
       </div>
 
@@ -39,10 +41,15 @@ function Story() {
           </div>
 
           <p>
-            I'm Emily Qhawekazi Maramani — I design the interface and build
-            the code behind it, which means I notice the bug nobody flagged,
-            the edge case nobody tested, and the layout that just feels off,
-            then fix all of it myself.
+            I'm Emily Qhawekazi Maramani. I'm UX/UI-focused because an idea only
+            works if all kinds of people can use it — on any phone, in any
+            language, with any level of confidence on a screen.
+          </p>
+          <p>
+            I ideate, design and then actually put it into action: I build the
+            interface and the code behind it, and I don't stop until it ships.
+            That's why I'm moving into product engineering — owning a product
+            from the gap I spotted to the feature people use.
           </p>
           <p>
             Off-screen, I'm a mother first — which is its own crash course in
@@ -60,7 +67,7 @@ function Story() {
           <div className="story-photo" data-cursor="hover">
             <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
           </div>
-          <span className="story-photo-caption">Emily — UI/UX Designer & Developer</span>
+          <span className="story-photo-caption">Emily — Product Engineer · UI/UX · Full-Stack</span>
         </div>
       </div>
     </section>
