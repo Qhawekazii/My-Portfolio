@@ -1,7 +1,10 @@
+import { useState } from "react"
 import projects from "../data/projects.js"
+import caseStudies from "../data/caseStudies.js"
+import CaseStudy from "./CaseStudy.jsx"
 import { useReveal } from "../hooks/useReveal.js"
 
-function ProjectEntry({ project }) {
+function ProjectEntry({ project, onOpenCaseStudy }) {
   const ref = useReveal()
   const status = project.status
 
@@ -41,13 +44,15 @@ function ProjectEntry({ project }) {
           {project.github && (
             <a href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>
           )}
-          {project.caseStudy && (
-            <a href={project.caseStudy} target="_blank" rel="noreferrer">Case study ↗</a>
+          {caseStudies[project.name] && (
+            <button type="button" className="case-study-btn" onClick={onOpenCaseStudy} data-cursor="hover">
+              Read case study →
+            </button>
           )}
           {project.private && !project.github && (
             <span className="project-links-empty">Private repo · client work</span>
           )}
-          {!project.live && !project.github && !project.caseStudy && (
+          {!project.live && !project.github && !caseStudies[project.name] && (
             <span className="project-links-empty">Coming soon</span>
           )}
         </div>
@@ -57,6 +62,9 @@ function ProjectEntry({ project }) {
 }
 
 function Projects() {
+  const [openName, setOpenName] = useState(null)
+  const openProject = projects.find((p) => p.name === openName)
+
   return (
     <section id="work">
       <span className="section-num">04 / 05</span>
@@ -67,9 +75,21 @@ function Projects() {
 
       <div className="project-grid">
         {projects.map((project) => (
-          <ProjectEntry key={project.number} project={project} />
+          <ProjectEntry
+            key={project.number}
+            project={project}
+            onOpenCaseStudy={() => setOpenName(project.name)}
+          />
         ))}
       </div>
+
+      {openProject && (
+        <CaseStudy
+          project={openProject}
+          study={caseStudies[openProject.name]}
+          onClose={() => setOpenName(null)}
+        />
+      )}
     </section>
   )
 }

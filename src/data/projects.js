@@ -3,7 +3,7 @@
 // tech         -> array of short tags shown under the project name
 // live / github -> leave as "" (empty string) if a link doesn't exist yet,
 //                   the button will simply be hidden
-// caseStudy     -> link to the written case study (shown as a "Case study" button)
+// case studies  -> written in data/caseStudies.js, keyed by project name
 // private       -> true for client repos: shows "Private repo" instead of a GitHub link
 
 import kindernest from "../assets/kindernest.png"
@@ -26,7 +26,6 @@ const projects = [
     live: "",
     github: "",
     private: true,
-    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/ihub-comms.md",
   },
   {
     name: "Un De Plus Tours",
@@ -40,7 +39,6 @@ const projects = [
     live: "https://unde-plus.co.za",
     github: "",
     private: true,
-    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/un-de-plus.md",
   },
   {
     name: "St Frusquin Sporting",
@@ -54,7 +52,6 @@ const projects = [
     live: "https://st-frusquin-sporting.vercel.app",
     github: "",
     private: true,
-    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/st-frusquin-sporting.md",
   },
   {
     name: "Airbnb Clone",
@@ -67,7 +64,6 @@ const projects = [
       "Guests and hosts need different things from the same data, and each should only change what's theirs.",
     live: "",
     github: "https://github.com/Qhawekazii/Emily_AirbnbClone",
-    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/airbnb-clone.md",
   },
   {
     name: "Tic-Tac-Toe · Neon Arena",
@@ -80,7 +76,6 @@ const projects = [
       "When board, turns, scores and history live in scattered state, the screen and the rules start to disagree.",
     live: "https://tic-tac-toe-five-ebon-96.vercel.app/",
     github: "https://github.com/Qhawekazii/tic-tac-toe",
-    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/tic-tac-toe.md",
   },
   {
     name: "KinderNest",
