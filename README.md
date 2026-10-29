@@ -4,6 +4,7 @@
 
 A React + Vite portfolio built from scratch — no template, no theme, every animation and interaction hand-built to show both sides of the work: the interface and the code behind it.
 
+🌐 **Live:** [my-portfolio-three-roan-41.vercel.app](https://my-portfolio-three-roan-41.vercel.app/)  
 📄 **CV:** available to view/download straight from the site
 
 ---
@@ -69,12 +70,16 @@ public/               # Static files served as-is (favicon, the CV PDF)
 
 | Project | Stack | Links |
 |---|---|---|
+| **iHub Comms** *(product engineer, team CTRL + Create)* — my idea and UI/UX: one invite-only platform for iHub in place of several paid subscriptions, pitched for internal use | Product design, React, Supabase | [Case study](https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/ihub-comms.md) · private repo |
+| **Un De Plus Tours** *(existing client, solo)* — fixed a template site whose forms submitted nowhere; trip planner with PDF/email/Google Docs export, 19 languages | Next.js, TypeScript, Supabase | [Live](https://unde-plus.co.za) · [Case study](https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/un-de-plus.md) |
+| **St Frusquin Sporting** *(client, solo)* — five-division football club site; first load cut from 32 MB to 3.9 MB | React, Vite, Formspree | [Live](https://st-frusquin-sporting.vercel.app) · [Case study](https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/st-frusquin-sporting.md) |
+| **Airbnb Clone** — guest site and host dashboard on one REST API, 43 API tests | React, Express, MongoDB, JWT | [Code](https://github.com/Qhawekazii/Emily_AirbnbClone) · [Case study](https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/airbnb-clone.md) |
+| **Tic-Tac-Toe · Neon Arena** — single-reducer state and an unbeatable minimax CPU | React, useReducer | [Live](https://tic-tac-toe-five-ebon-96.vercel.app/) · [Code](https://github.com/Qhawekazii/tic-tac-toe) |
 | **Urban Threads** — streetwear e-commerce storefront with a live cart and Firebase-backed auth/catalogue | HTML, CSS, JS, Firebase Firestore, Firebase Auth | [Live](https://qhawekazii.github.io/Q-s-Urban-Threads/) · [Code](https://github.com/Qhawekazii/Q-s-Urban-Threads) |
 | **PawFinder** — dog breed explorer with shared state and a considered loading experience | React, Context API, Custom Hooks, REST API | [Live](https://react-dog-search-app.vercel.app/) · [Code](https://github.com/hlatsiboy113-png/react-dog-search-app) |
 | **KinderNest** — childcare platform concept, designed to feel warm rather than corporate | HTML, CSS, JavaScript | [Live](https://kindernest-five.vercel.app/) · [Code](https://github.com/St10482946/kindernest) |
 | **iHub Prototype** — collaborative client website prototype built with a team | HTML, CSS, JavaScript | [Live](https://kmukendi10.github.io/Client-Website-Prototype-iHub/) · [Code](https://github.com/kmukendi10/Client-Website-Prototype-iHub) |
 
-*(A couple more are in progress and marked accordingly on the site.)*
 
 ##  Get in Touch
 
