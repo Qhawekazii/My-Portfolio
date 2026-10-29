@@ -1427,6 +1427,7 @@ button:focus-visible {
 }
 
 .case-study {
+  margin: auto;
   width: min(760px, calc(100vw - 32px));
   max-height: calc(100vh - 48px);
   padding: 0;
@@ -1498,6 +1499,7 @@ button:focus-visible {
 }
 
 .case-study section {
+  padding: 0;
   margin-bottom: 26px;
 }
 
@@ -1518,6 +1520,7 @@ button:focus-visible {
 }
 
 .case-study ul {
+  margin: 0;
   padding-left: 20px;
   display: grid;
   gap: 8px;
@@ -1537,4 +1540,9 @@ button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .case-study[open] { animation: none; }
+}
+
+/* Keep hero text clear of the fixed side navigation on phones */
+@media (max-width: 560px) {
+  .hero-content { padding-right: 52px; }
 }
