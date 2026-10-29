@@ -57,6 +57,32 @@ const projects = [
     caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/st-frusquin-sporting.md",
   },
   {
+    name: "Airbnb Clone",
+    type: "FULL-STACK / CAPSTONE",
+    tech: ["React", "Node.js", "Express", "MongoDB", "JWT", "Jest"],
+    image: "",
+    description:
+      "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks, 43 API tests and a single-app Heroku deployment.",
+    problem:
+      "Guests and hosts need different things from the same data, and each should only change what's theirs.",
+    live: "",
+    github: "https://github.com/Qhawekazii/Emily_AirbnbClone",
+    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/airbnb-clone.md",
+  },
+  {
+    name: "Tic-Tac-Toe · Neon Arena",
+    type: "FRONTEND / REACT",
+    tech: ["React", "useReducer", "Minimax"],
+    image: "",
+    description:
+      "All game state in one reducer, an unbeatable minimax CPU, player names, a scoreboard and time-travel through move history.",
+    problem:
+      "When board, turns, scores and history live in scattered state, the screen and the rules start to disagree.",
+    live: "https://tic-tac-toe-five-ebon-96.vercel.app/",
+    github: "https://github.com/Qhawekazii/tic-tac-toe",
+    caseStudy: "https://github.com/Qhawekazii/Qhawekazii/blob/main/case-studies/tic-tac-toe.md",
+  },
+  {
     name: "KinderNest",
     type: "WEB / UI DESIGN",
     tech: ["HTML", "CSS", "JavaScript"],
