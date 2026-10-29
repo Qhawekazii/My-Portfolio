@@ -26,6 +26,10 @@ function ProjectEntry({ project }) {
 
         <p className="project-desc">{project.description}</p>
 
+        {project.problem && (
+          <p className="project-problem"><strong>Problem solved:</strong> {project.problem}</p>
+        )}
+
         <div className="project-tech">
           {project.tech.map((t) => <span key={t}>{t}</span>)}
         </div>
@@ -37,7 +41,13 @@ function ProjectEntry({ project }) {
           {project.github && (
             <a href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>
           )}
-          {!project.live && !project.github && (
+          {project.caseStudy && (
+            <a href={project.caseStudy} target="_blank" rel="noreferrer">Case study ↗</a>
+          )}
+          {project.private && !project.github && (
+            <span className="project-links-empty">Private repo · client work</span>
+          )}
+          {!project.live && !project.github && !project.caseStudy && (
             <span className="project-links-empty">Coming soon</span>
           )}
         </div>
