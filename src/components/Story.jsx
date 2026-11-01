@@ -23,8 +23,7 @@ function Story() {
       <div className="philosophy reveal" ref={philosophyRef}>
         <p>
           <span>A dentist sees a cavity and fills it.</span> I see the gaps
-          in the digital world — the awkward flow, the missing state, the tool a team
-          pays for that still doesn't do the job —
+          in the digital world —
           <span> and I fill them.</span>
         </p>
       </div>
@@ -43,23 +42,15 @@ function Story() {
           <p>
             I'm Emily Qhawekazi Maramani. I'm UX/UI-focused because an idea only
             works if all kinds of people can use it — on any phone, in any
-            language, with any level of confidence on a screen.
+            language, with any level of confidence on a screen. I design it,
+            build it, and don't stop until it ships, which is why I'm moving
+            into product engineering.
           </p>
           <p>
-            I ideate, design and then actually put it into action: I build the
-            interface and the code behind it, and I don't stop until it ships.
-            That's why I'm moving into product engineering — owning a product
-            from the gap I spotted to the feature people use.
-          </p>
-          <p>
-            Off-screen, I'm a mother first — which is its own crash course in
-            noticing what's about to go wrong before it does, staying calm when
-            it does anyway, and fixing things with whatever's on hand.
-          </p>
-          <p>
-            Family, faith, and fitness keep me grounded; curiosity keeps me
-            building. I'm still finding new gaps to notice — and that's the
-            part I actually love.
+            Off-screen, I'm a mother first — a crash course in noticing what's
+            about to go wrong before it does, and staying calm when it does
+            anyway. Family, faith and fitness keep me grounded; curiosity keeps
+            me building.
           </p>
         </div>
 
