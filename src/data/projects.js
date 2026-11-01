@@ -6,6 +6,7 @@
 // case studies  -> written in data/caseStudies.js, keyed by project name
 // private       -> true for client repos: shows "Private repo" instead of a GitHub link
 // liveNote      -> shown in place of the Live button when there is no public live link
+// admin         -> optional second live link (e.g. an admin dashboard)
 
 import kindernest from "../assets/kindernest.png"
 import ihub from "../assets/iHubLogo.webp"
@@ -62,12 +63,12 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT", "Jest"],
     image: "",
     description:
-      "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks and 43 API tests, set up to deploy as a single Heroku app.",
+      "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks and 43 API tests. Both sites are live on Render.",
     problem:
       "Guests and hosts need different things from the same data, and each should only change what's theirs.",
-    live: "",
+    live: "https://emily-airbnbclone.onrender.com/",
+    admin: "https://emily-airbnbclone-admin.onrender.com/",
     github: "https://github.com/Qhawekazii/Emily_AirbnbClone",
-    liveNote: "Not deployed yet",
   },
   {
     name: "Tic-Tac-Toe · Neon Arena",

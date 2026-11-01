@@ -84,7 +84,12 @@ function CaseStudy({ project, study, onClose }) {
 
         <div className="project-links">
           {project.live ? (
-            <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>
+            <>
+              <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>
+              {project.admin && (
+                <a href={project.admin} target="_blank" rel="noreferrer">Admin ↗</a>
+              )}
+            </>
           ) : (
             <span className="project-links-empty">{project.liveNote || "Not deployed yet"}</span>
           )}
