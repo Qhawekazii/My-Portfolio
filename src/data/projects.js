@@ -4,9 +4,7 @@
 // live / github -> leave as "" (empty string) if a link doesn't exist yet,
 //                   the button will simply be hidden
 // case studies  -> written in data/caseStudies.js, keyed by project name
-// private       -> true for client repos: shows "Private repo" instead of a GitHub link
-// liveNote      -> shown in place of the Live button when there is no public live link
-// admin         -> optional second live link (e.g. an admin dashboard)
+// private       -> true for client repos: the Repo button shows as locked "Private"
 
 import kindernest from "../assets/kindernest.png"
 import ihub from "../assets/iHubLogo.webp"
@@ -27,10 +25,9 @@ const projects = [
       "My idea and my design: one invite-only platform for iHub covering announcements, chat, tasks, submissions, schedule, attendance, courses and notes. I owned the product and all UI/UX, then built it with my team, CTRL + Create, and pitched it to iHub for internal use.",
     problem:
       "iHub was paying subscriptions for several platforms that each covered one slice of a cohort's needs, and learners missed deadlines because information was spread across all of them.",
-    live: "",
+    live: "https://ihub-comms.vercel.app",
     github: "",
     private: true,
-    liveNote: "Internal app · demo on request",
   },
   {
     name: "Un De Plus Tours",

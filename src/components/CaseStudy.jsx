@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import ProjectLinks from "./ProjectLinks.jsx"
 
 function List({ items }) {
   return (
@@ -82,23 +83,7 @@ function CaseStudy({ project, study, onClose }) {
           {study.stack.map((t) => <span key={t}>{t}</span>)}
         </div>
 
-        <div className="project-links">
-          {project.live ? (
-            <>
-              <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>
-              {project.admin && (
-                <a href={project.admin} target="_blank" rel="noreferrer">Admin ↗</a>
-              )}
-            </>
-          ) : (
-            <span className="project-links-empty">{project.liveNote || "Not deployed yet"}</span>
-          )}
-          {project.github ? (
-            <a href={project.github} target="_blank" rel="noreferrer">Repo ↗</a>
-          ) : (
-            <span className="project-links-empty">{project.private ? "Repo private · client work" : "Repo coming soon"}</span>
-          )}
-        </div>
+        <ProjectLinks project={project} />
       </article>
     </dialog>
   )

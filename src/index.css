@@ -376,7 +376,7 @@ h1, h2, h3, h4 {
    No mix-blend-mode here on purpose: it stays visible on both the
    light and dark themes instead of washing out on light surfaces.
    ========================================================== */
-.project-links a,
+.project-btn,
 .contact-block a,
 .contact-social,
 .side-nav-item,
@@ -1171,46 +1171,6 @@ h1, h2, h3, h4 {
   color: var(--text-mute);
 }
 
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 22px;
-}
-
-.project-links > * {
-  white-space: nowrap;
-}
-
-.project-links .case-study-btn {
-  margin-left: auto;
-}
-
-.project-links a {
-  font-family: var(--heading-font);
-  font-size: 0.82rem;
-  letter-spacing: 0.05em;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text);
-  border-bottom: 1px solid var(--border-strong);
-  padding-bottom: 3px;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.project-links a:hover {
-  color: var(--pink);
-  border-color: var(--pink);
-}
-
-.project-links-empty {
-  font-family: var(--heading-font);
-  font-size: 0.78rem;
-  letter-spacing: 0.05em;
-  color: var(--text-mute);
-}
-
 @media (max-width: 560px) {
   .project-grid { grid-template-columns: 1fr; gap: 24px; }
 }
@@ -1419,23 +1379,6 @@ button:focus-visible {
 }
 
 /* ---------- Case study dialog ---------- */
-.case-study-btn {
-  font-family: var(--heading-font);
-  font-size: 0.82rem;
-  letter-spacing: 0.05em;
-  color: var(--teal);
-  background: none;
-  border: 0;
-  border-bottom: 1px solid currentColor;
-  padding: 0 0 2px;
-  cursor: pointer;
-}
-
-.case-study-btn:hover,
-.case-study-btn:focus-visible {
-  color: var(--pink);
-}
-
 .case-study {
   margin: auto;
   width: min(760px, calc(100vw - 32px));
@@ -1555,4 +1498,73 @@ button:focus-visible {
 /* Keep hero text clear of the fixed side navigation on phones */
 @media (max-width: 560px) {
   .hero-content { padding-right: 52px; }
+}
+
+/* ---------- Project buttons: one uniform row on every card ---------- */
+.project-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-self: stretch;
+  width: 100%;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.project-links .project-btn--wide {
+  grid-column: 1 / -1;
+}
+
+.project-links--two {
+  grid-template-columns: repeat(2, minmax(0, 160px));
+  margin-top: 8px;
+  padding-top: 0;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--heading-font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.25s var(--ease);
+}
+
+.project-btn:hover,
+.project-btn:focus-visible {
+  color: var(--pink);
+  border-color: var(--pink);
+  transform: translateY(-2px);
+}
+
+.project-btn:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+}
+
+.project-btn--locked,
+.project-btn--locked:hover {
+  color: var(--text-mute);
+  border-style: dashed;
+  border-color: var(--border-strong);
+  background: transparent;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-btn,
+  .project-btn:hover { transform: none; }
 }
