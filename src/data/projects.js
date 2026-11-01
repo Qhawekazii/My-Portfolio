@@ -13,6 +13,7 @@ import pawfinder from "../assets/pawfinder-paw.svg"
 import urbanThreads from "../assets/UrbanThreads.png"
 import undeplus from "../assets/undeplus.jpg"
 import stFrusquin from "../assets/stfrusquin-crest.jpeg"
+import tictactoe from "../assets/tictactoe.jpg"
 
 const projects = [
   {
@@ -72,7 +73,7 @@ const projects = [
     name: "Tic-Tac-Toe · Neon Arena",
     type: "FRONTEND / REACT",
     tech: ["React", "useReducer", "Minimax"],
-    image: "",
+    image: tictactoe,
     description:
       "All game state in one reducer, an unbeatable minimax CPU, player names, a scoreboard and time-travel through move history.",
     problem:
