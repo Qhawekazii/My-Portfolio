@@ -1,6 +1,4 @@
 import { useReveal } from "../hooks/useReveal.js"
-import { useState } from "react"
-import { Pause, Play } from "lucide-react"
 import toolkit from "../data/toolkit.js"
 
 const STEPS = [
@@ -39,8 +37,6 @@ function TimelineItem({ step }) {
 }
 
 function Evolution() {
-  const [paused, setPaused] = useState(false)
-
   return (
     <section id="evolution">
       <span className="section-num">03 / 05</span>
@@ -62,16 +58,6 @@ function Evolution() {
             Every tool here is used in a project below. Hover over one to see where.
           </p>
         </div>
-        <button
-          type="button"
-          className="toolkit-toggle"
-          onClick={() => setPaused((p) => !p)}
-          aria-pressed={paused}
-          data-cursor="hover"
-        >
-          {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
-          {paused ? "Play" : "Pause"}
-        </button>
       </div>
 
       {/* Screen readers get the plain list once; the moving strip is decorative */}
@@ -81,7 +67,7 @@ function Evolution() {
         ))}
       </ul>
 
-      <div className={`tech-marquee${paused ? " is-paused" : ""}`} aria-hidden="true">
+      <div className="tech-marquee" aria-hidden="true">
         <div className="tech-marquee-track">
           {[...toolkit, ...toolkit].map(({ label, Icon, color, usedIn }, i) => (
             <div
