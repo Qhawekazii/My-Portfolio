@@ -2,6 +2,7 @@ import { useState } from "react"
 import projects from "../data/projects.js"
 import caseStudies from "../data/caseStudies.js"
 import CaseStudy from "./CaseStudy.jsx"
+import ProjectLinks from "./ProjectLinks.jsx"
 import { useReveal } from "../hooks/useReveal.js"
 
 function ProjectEntry({ project, onOpenCaseStudy }) {
@@ -37,28 +38,7 @@ function ProjectEntry({ project, onOpenCaseStudy }) {
           {project.tech.map((t) => <span key={t}>{t}</span>)}
         </div>
 
-        <div className="project-links">
-          {project.live ? (
-            <>
-              <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>
-              {project.admin && (
-                <a href={project.admin} target="_blank" rel="noreferrer">Admin ↗</a>
-              )}
-            </>
-          ) : (
-            <span className="project-links-empty">{project.liveNote || "Not deployed yet"}</span>
-          )}
-          {project.github ? (
-            <a href={project.github} target="_blank" rel="noreferrer">Repo ↗</a>
-          ) : (
-            <span className="project-links-empty">{project.private ? "Repo private · client work" : "Repo coming soon"}</span>
-          )}
-          {caseStudies[project.name] && (
-            <button type="button" className="case-study-btn" onClick={onOpenCaseStudy} data-cursor="hover">
-              Read case study →
-            </button>
-          )}
-        </div>
+        <ProjectLinks project={project} onOpenCaseStudy={onOpenCaseStudy} />
       </div>
     </article>
   )
