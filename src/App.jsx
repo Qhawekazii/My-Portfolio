@@ -8,6 +8,7 @@ import Story from "./components/Story.jsx"
 import HowIWork from "./components/HowIWork.jsx"
 import Projects from "./components/Projects.jsx"
 import Contact from "./components/Contact.jsx"
+import Footer from "./components/Footer.jsx"
 
 function App() {
   // The intro animation plays once per visit; returning in the same
@@ -44,6 +45,7 @@ function App() {
         <Projects />
         <Contact />
       </main>
+      <Footer />
     </>
   )
 }
