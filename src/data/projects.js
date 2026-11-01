@@ -64,11 +64,10 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT", "Jest"],
     image: airbnb,
     description:
-      "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks and 43 API tests. Both sites are live on Render.",
+      "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks and 43 API tests. The guest site is live on Render.",
     problem:
       "Guests and hosts need different things from the same data, and each should only change what's theirs.",
     live: "https://emily-airbnbclone.onrender.com/",
-    admin: "https://emily-airbnbclone-admin.onrender.com/",
     github: "https://github.com/Qhawekazii/Emily_AirbnbClone",
   },
   {
