@@ -46,14 +46,6 @@ function Hero() {
           >
             View CV ↗
           </a>
-          <a
-            className="cv-btn secondary"
-            href={CV_PATH}
-            download="Emily_Qhawekazi_Maramani_CV.pdf"
-            data-cursor="hover"
-          >
-            Download ↓
-          </a>
         </div>
       </div>
 
