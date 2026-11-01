@@ -93,11 +93,11 @@ const caseStudies = {
       "JWT authentication middleware, bcrypt password hashing in a Mongoose pre-save hook, and role checks (hosts edit only their own listings).",
       "Correct HTTP status codes (400, 401, 403, 404) so the frontends can explain what went wrong.",
       "43 API tests with Jest and Supertest against a separate test database.",
-      "Express serves the API and both built React apps, so the whole platform deploys as one Heroku app.",
+      "Deployed on Render: the guest site and the host dashboard as separate live apps talking to the same API.",
       "Fixed breaking changes after upgrades: Express 5 wildcard routes and Mongoose 9 save hooks.",
     ],
     outcome: [
-      "Guest site, host dashboard and API working together",
+      "Guest site and host dashboard live on Render, sharing one API",
       "Full API docs and a deployment guide",
     ],
     stack: ["React", "Vite", "Node.js", "Express", "MongoDB", "JWT", "Jest"],
