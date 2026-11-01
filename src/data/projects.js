@@ -129,18 +129,6 @@ const projects = [
     live: "https://qhawekazii.github.io/Q-s-Urban-Threads/",
     github: "https://github.com/Qhawekazii/Q-s-Urban-Threads.git",
   },
-  // TODO: fill in real description, tech, image, and links once available
-  {
-    name: "Firestone",
-    type: "BACKEND",
-    tech: [],
-    image: "",
-    description: "A backend project. Full description and tech stack coming soon.",
-    live: "",
-    github: "",
-    status: { type: "progress", label: "Details Coming Soon" },
-  },
-
 ]
 
 export default projects.map((p, i) => ({ ...p, number: String(i + 1).padStart(2, "0") }))
