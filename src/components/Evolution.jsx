@@ -1,14 +1,7 @@
 import { useReveal } from "../hooks/useReveal.js"
-import {
-  SiHtml5,
-  SiCss,
-  SiJavascript,
-  SiReact,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiFirebase,
-} from "react-icons/si"
+import { useState } from "react"
+import { Pause, Play } from "lucide-react"
+import toolkit from "../data/toolkit.js"
 
 const STEPS = [
   {
@@ -33,17 +26,6 @@ const STEPS = [
   },
 ]
 
-const LEARNING = [
-  { label: "HTML5", Icon: SiHtml5, color: "#E34F26" },
-  { label: "CSS3", Icon: SiCss, color: "#1572B6" },
-  { label: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
-  { label: "React", Icon: SiReact, color: "#61DAFB" },
-  { label: "Node.js", Icon: SiNodedotjs, color: "#339933" },
-  { label: "Express.js", Icon: SiExpress, color: "#9CA3AF" },
-  { label: "MongoDB", Icon: SiMongodb, color: "#47A248" },
-  { label: "Firebase", Icon: SiFirebase, color: "#FFCA28" },
-]
-
 function TimelineItem({ step }) {
   const ref = useReveal({ threshold: 0.4 })
   return (
@@ -57,6 +39,8 @@ function TimelineItem({ step }) {
 }
 
 function Evolution() {
+  const [paused, setPaused] = useState(false)
+
   return (
     <section id="evolution">
       <span className="section-num">03 / 05</span>
@@ -71,17 +55,45 @@ function Evolution() {
         ))}
       </ul>
 
-      <div className="section-head" style={{ marginTop: 90, marginBottom: 0 }}>
-        <span className="eyebrow">Currently Learning</span>
+      <div className="toolkit-head">
+        <div>
+          <span className="eyebrow">My Toolkit</span>
+          <p className="toolkit-sub">
+            Every tool here is used in a project below. Hover over one to see where.
+          </p>
+        </div>
+        <button
+          type="button"
+          className="toolkit-toggle"
+          onClick={() => setPaused((p) => !p)}
+          aria-pressed={paused}
+          data-cursor="hover"
+        >
+          {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
+          {paused ? "Play" : "Pause"}
+        </button>
       </div>
-      <div className="tech-marquee">
+
+      {/* Screen readers get the plain list once; the moving strip is decorative */}
+      <ul className="sr-only">
+        {toolkit.map(({ label, usedIn }) => (
+          <li key={label}>{label}: {usedIn}</li>
+        ))}
+      </ul>
+
+      <div className={`tech-marquee${paused ? " is-paused" : ""}`} aria-hidden="true">
         <div className="tech-marquee-track">
-          {[...LEARNING, ...LEARNING].map(({ label, Icon, color }, i) => (
-            <div className="tech-icon-wrap" style={{ "--brand": color }} key={`${label}-${i}`}>
-              <span className="tech-icon" data-cursor="hover">
-                <Icon size={26} />
+          {[...toolkit, ...toolkit].map(({ label, Icon, color, usedIn }, i) => (
+            <div
+              className={`tech-icon-wrap${i >= toolkit.length ? " is-dup" : ""}`}
+              style={color ? { "--brand": color } : undefined}
+              key={`${label}-${i}`}
+            >
+              <span className="tech-icon">
+                <Icon size={28} />
               </span>
-              <span className="tech-tooltip">{label}</span>
+              <span className="tech-label">{label}</span>
+              <span className="tech-tooltip">{usedIn}</span>
             </div>
           ))}
         </div>
