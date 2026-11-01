@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { FaGithub, FaLinkedin, FaEnvelope, FaDiscord } from "react-icons/fa"
+import { Briefcase, Code2, Globe } from "lucide-react"
+import { CV_PATH } from "../data/cv.js"
 
 const EMAIL = "emilyqm01@gmail.com"
 const GITHUB = "https://github.com/Qhawekazii"
@@ -7,6 +9,12 @@ const LINKEDIN = "https://www.linkedin.com/in/emily-maramani-ab0765320"
 // Discord has no public profile URL from a username alone (only from a
 // numeric user ID), so this one copies the username instead of linking.
 const DISCORD_USERNAME = "emilyqhawekazim"
+
+const AVAILABLE_FOR = [
+  { Icon: Briefcase, title: "Full-time roles", text: "Junior product engineer, full-stack or front-end." },
+  { Icon: Code2, title: "Freelance projects", text: "Websites, web apps and redesigns for small businesses and teams." },
+  { Icon: Globe, title: "Remote or Johannesburg", text: "Happy to work remotely, or on-site in Johannesburg." },
+]
 
 const SOCIALS = [
   { label: "Email", href: `mailto:${EMAIL}`, Icon: FaEnvelope, external: false },
@@ -94,9 +102,25 @@ function Contact() {
             Let's<br />build<br />something.
           </h2>
           <p className="contact-tagline">
-            Got a role, a project, or just want to say hi? I read every message
-            myself — reach out directly or send it through the form.
+            Hiring for a role, or need a website or web app built? Tell me what
+            you're working on. I read every message myself.
           </p>
+
+          <ul className="available-list" aria-label="Available for">
+            {AVAILABLE_FOR.map(({ Icon, title, text }) => (
+              <li key={title}>
+                <Icon size={18} strokeWidth={2} aria-hidden="true" />
+                <div>
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <a className="contact-cv" href={CV_PATH} target="_blank" rel="noreferrer" data-cursor="hover">
+            View my CV ↗
+          </a>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit} noValidate>
@@ -169,7 +193,7 @@ function Contact() {
 
       <div className="footer-bar">
         <span>© 2026 Emily Qhawekazi Maramani</span>
-        <span>Designed & built by me, end to end.</span>
+        <span>Designed &amp; built by me, end to end · Open to roles, freelance and remote work</span>
       </div>
     </section>
   )

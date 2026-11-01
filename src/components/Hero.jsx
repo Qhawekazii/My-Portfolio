@@ -1,12 +1,14 @@
 import heroBg from "../assets/hero.jpg"
-import { useTypewriter } from "../hooks/useTypewriter.js"
 import { CV_PATH } from "../data/cv.js"
 
-const ROLES = ["Product Engineer", "UI/UX Designer", "Full-Stack Developer"]
+// Three numbers a recruiter can check against the projects further down.
+const PROOF = [
+  { value: "3", label: "client projects" },
+  { value: "9", label: "projects with case studies" },
+  { value: "88%", label: "lighter page load for a client" },
+]
 
 function Hero() {
-  const typed = useTypewriter(ROLES)
-
   return (
     <section id="home" className="hero">
       <div className="hero-bg" aria-hidden="true">
@@ -14,31 +16,32 @@ function Hero() {
       </div>
 
       <div className="hero-content">
-        <div className="hero-status">
-          <span className="dot" />
-          Available to build
-        </div>
+        <p className="hero-status">
+          <span className="dot" aria-hidden="true" />
+          Open to work · Junior roles · Freelance · Remote
+        </p>
 
         <h1 className="hero-name">
           Hi, I'm
           <span>Qhawekazi</span>
         </h1>
 
-        <div className="hero-roles" aria-hidden="true">
-          <span className="typewriter">
-            {typed}
-            <span className="caret" />
-          </span>
-        </div>
-        <p className="sr-only">I am a Product Engineer, UI/UX Designer and Full-Stack Developer.</p>
+        <p className="hero-role">
+          Product Engineer
+          <span>UI/UX Designer · Full-Stack Developer · Johannesburg</span>
+        </p>
 
         <p className="hero-tagline">
-          I see the gaps and fill them. I design for the people who will use it, then build it until it ships.
+          I design and build products that work for everyone who uses them —
+          from the first sketch to the live site.
         </p>
 
         <div className="hero-actions">
+          <a className="cv-btn primary" href="#work" data-cursor="hover">
+            See my work ↓
+          </a>
           <a
-            className="cv-btn primary"
+            className="cv-btn secondary"
             href={CV_PATH}
             target="_blank"
             rel="noreferrer"
@@ -47,6 +50,15 @@ function Hero() {
             View CV ↗
           </a>
         </div>
+
+        <ul className="hero-proof">
+          {PROOF.map(({ value, label }) => (
+            <li key={label}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="hero-foot">

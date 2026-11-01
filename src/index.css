@@ -590,7 +590,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 8%;
+  padding: 120px 8% 110px;
   position: relative;
   overflow: hidden;
 }
@@ -664,40 +664,52 @@ h1, h2, h3, h4 {
   color: transparent;
 }
 
-.hero-roles {
-  display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
-  margin: 26px 0 22px;
+.hero-role {
+  margin: 26px 0 20px;
   font-family: var(--heading-font);
-  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--pink);
-  min-height: 1.4em;
 }
 
-.typewriter {
-  display: inline-flex;
-  align-items: center;
+.hero-role span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
 }
 
-.caret {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  margin-left: 4px;
-  background: var(--pink);
-  animation: caretBlink 1s step-end infinite;
+.hero-proof {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 36px;
+  margin-top: 44px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-strong);
+  max-width: 620px;
 }
 
-@keyframes caretBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.hero-proof li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .caret { animation: none; opacity: 1; }
+.hero-proof strong {
+  font-family: var(--heading-font);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.hero-proof span {
+  font-size: 0.82rem;
+  color: var(--text-dim);
 }
 
 .sr-only {
@@ -1477,7 +1489,9 @@ button:focus-visible {
 
 /* Keep every section clear of the fixed side navigation on phones */
 @media (max-width: 560px) {
-  section { padding-right: 68px; }
+  section,
+  .hero { padding-right: 68px; }
+  .hero-status { letter-spacing: 0.12em; font-size: 0.7rem; line-height: 1.6; }
 }
 
 /* ---------- Project buttons: one uniform row on every card ---------- */
@@ -1660,4 +1674,54 @@ button:focus-visible {
 @media (max-width: 860px) {
   .process-grid { grid-template-columns: 1fr; }
   .process-step { padding: 24px 20px; }
+}
+
+/* ---------- Contact: what I'm available for ---------- */
+.available-list {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.available-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.available-list svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--teal);
+}
+
+.available-list strong {
+  display: block;
+  font-family: var(--heading-font);
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+.available-list span {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.contact-cv {
+  display: inline-flex;
+  margin-top: 26px;
+  font-family: var(--heading-font);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  border-bottom: 1px solid var(--pink);
+  padding-bottom: 3px;
+  transition: color 0.25s ease;
+}
+
+.contact-cv:hover,
+.contact-cv:focus-visible {
+  color: var(--pink);
 }
