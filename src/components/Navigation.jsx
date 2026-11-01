@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { Home, User, TrendingUp, Briefcase, Mail } from "lucide-react"
+import { Home, User, Route, Briefcase, Mail } from "lucide-react"
 
 const LINKS = [
   { label: "Home", id: "home", Icon: Home },
   { label: "My Story", id: "story", Icon: User },
-  { label: "My Evolution", id: "evolution", Icon: TrendingUp },
+  { label: "How I Work", id: "process", Icon: Route },
   { label: "Work", id: "work", Icon: Briefcase },
   { label: "Contact", id: "contact", Icon: Mail },
 ]

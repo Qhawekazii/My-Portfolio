@@ -878,66 +878,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================
-   EVOLUTION (timeline)
+   HOW I WORK + TOOLKIT
    ========================================================== */
-.timeline {
-  position: relative;
-  max-width: 760px;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 13px;
-  top: 10px;
-  bottom: 10px;
-  width: 1px;
-  background: linear-gradient(180deg, var(--teal), var(--pink), transparent);
-}
-
-.timeline-item {
-  position: relative;
-  padding: 0 0 54px 50px;
-}
-
-.timeline-item:last-child { padding-bottom: 0; }
-
-.timeline-node {
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid var(--teal);
-  background: var(--navy-1);
-  transition: box-shadow 0.4s ease, background 0.4s ease;
-}
-
-.timeline-item.in-view .timeline-node {
-  background: var(--teal);
-  box-shadow: 0 0 16px rgba(0, 255, 242, 0.6);
-}
-
-.timeline-stage {
-  font-family: var(--heading-font);
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  color: var(--pink);
-  margin-bottom: 6px;
-}
-
-.timeline-title {
-  font-size: 1.5rem;
-  margin-bottom: 6px;
-}
-
-.timeline-desc {
-  color: var(--text-mute);
-  font-size: 0.95rem;
-  max-width: 460px;
-}
-
 /* ---------- My toolkit: auto-scrolling strip in full brand colour ---------- */
 .toolkit-head {
   margin-top: 90px;
@@ -1533,9 +1475,9 @@ button:focus-visible {
   .case-study[open] { animation: none; }
 }
 
-/* Keep hero text clear of the fixed side navigation on phones */
+/* Keep every section clear of the fixed side navigation on phones */
 @media (max-width: 560px) {
-  .hero-content { padding-right: 52px; }
+  section { padding-right: 68px; }
 }
 
 /* ---------- Project buttons: one uniform row on every card ---------- */
@@ -1605,4 +1547,117 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .project-btn,
   .project-btn:hover { transform: none; }
+}
+
+/* ---------- How I work ---------- */
+.process-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  counter-reset: none;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px 30px 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  transition: border-color 0.3s ease;
+}
+
+.process-step:hover {
+  border-color: var(--border-strong);
+}
+
+.process-step-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.process-num {
+  font-family: var(--heading-font);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+}
+
+.process-step h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+}
+
+.process-principle {
+  font-family: var(--heading-font);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.process-what {
+  color: var(--text-dim);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.process-label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  font-style: normal;
+}
+
+.process-proof {
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.process-proof ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.process-proof li {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.process-project {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  font-family: var(--heading-font);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  vertical-align: 1px;
+}
+
+.process-question {
+  margin-top: auto;
+  padding: 14px 16px;
+  border-left: 2px solid var(--pink);
+  border-radius: 0 10px 10px 0;
+  background: color-mix(in srgb, var(--pink) 6%, transparent);
+  font-family: var(--heading-font);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
+  font-style: italic;
+}
+
+@media (max-width: 860px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .process-step { padding: 24px 20px; }
 }

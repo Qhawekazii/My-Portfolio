@@ -5,7 +5,7 @@ import Navigation from "./components/Navigation.jsx"
 import ThemeToggle from "./components/ThemeToggle.jsx"
 import Hero from "./components/Hero.jsx"
 import Story from "./components/Story.jsx"
-import Evolution from "./components/Evolution.jsx"
+import HowIWork from "./components/HowIWork.jsx"
 import Projects from "./components/Projects.jsx"
 import Contact from "./components/Contact.jsx"
 
@@ -23,7 +23,7 @@ function App() {
       <main>
         <Hero />
         <Story />
-        <Evolution />
+        <HowIWork />
         <Projects />
         <Contact />
       </main>
