@@ -15,6 +15,7 @@ import urbanThreads from "../assets/UrbanThreads.png"
 import undeplus from "../assets/undeplus.jpg"
 import stFrusquin from "../assets/stfrusquin-crest.jpeg"
 import tictactoe from "../assets/tictactoe.jpg"
+import airbnb from "../assets/airbnb.jpg"
 
 const projects = [
   {
@@ -61,7 +62,7 @@ const projects = [
     name: "Airbnb Clone",
     type: "FULL-STACK / CAPSTONE",
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT", "Jest"],
-    image: "",
+    image: airbnb,
     description:
       "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks and 43 API tests. Both sites are live on Render.",
     problem:
