@@ -120,6 +120,102 @@ const caseStudies = {
     outcome: ["A small game built with the architecture you'd want in a larger app"],
     stack: ["React", "useReducer", "Vite"],
   },
+
+  "KinderNest": {
+    role: "Solo: UI design and frontend development (Rosebank College web development module)",
+    problem:
+      "A preschool website has one real job: help a parent feel confident enough to get in touch. Many childcare sites read as cold and corporate, and are hard to use on the phone a busy parent is holding.",
+    approach: [
+      "Planned the sitemap around what parents look for: about, programmes, admissions, gallery and contact.",
+      "Built it in two stages: semantic HTML first so the content structure was right, then a full CSS and responsive layer.",
+      "Used a warm, calm visual style so it feels welcoming rather than corporate.",
+      "Made enquiring easy: an admissions enquiry form, plus email, phone, WhatsApp and an embedded map on the contact page.",
+    ],
+    technical: [
+      "Six pages of semantic HTML with consistent navigation and alt text on every image.",
+      "One stylesheet with a CSS reset, colour variables and a rem-based type scale.",
+      "Flexbox layouts with media queries at 1024px, 768px and 480px.",
+      "Keyboard focus styles on navigation links and hover states on buttons and images.",
+      "No JavaScript needed: the brief was HTML and CSS only.",
+    ],
+    outcome: [
+      "A responsive six-page site that works from phone to desktop",
+      "Responsive layouts checked and documented at each breakpoint",
+    ],
+    stack: ["HTML", "CSS", "Flexbox", "Responsive Design"],
+  },
+
+  "iHub Prototype": {
+    role: "Designer on a six-person team (Sprint 5 capstone)",
+    team: "iHub Sprint 5 capstone team",
+    problem:
+      "iHub Africa needed a website that clearly explains its mission, programmes and impact to young people looking for careers in the digital economy, and gives them an easy way to get in touch.",
+    approach: [
+      "Owned the design: the mockups in Figma that the team built from.",
+      "Designed mobile-first, so the site works on the phones most of iHub's audience uses.",
+      "Worked inside a real team structure: project lead, frontend, JavaScript, design, QA and Git manager, with work merged through GitHub.",
+    ],
+    technical: [
+      "Four pages (Home, About, Programs, Contact) in semantic HTML and CSS.",
+      "JavaScript for the hamburger menu, contact form validation and scroll animations.",
+      "Mobile-first responsive layouts with flexible images.",
+      "Accessibility basics: semantic structure, alt text and keyboard-friendly navigation.",
+    ],
+    outcome: [
+      "A responsive prototype presented as the Sprint 5 capstone",
+      "Experience turning design mockups into a team-built site",
+    ],
+    stack: ["Figma", "HTML", "CSS", "JavaScript", "Git"],
+  },
+
+  "PawFinder": {
+    role: "UI, features, QA and presenter on a four-person team",
+    team: "PawFinder team",
+    problem:
+      "Apps that load data from an API often go quiet while loading, or fail without telling the user why. That silence breaks trust fast, especially for people who aren't confident online.",
+    approach: [
+      "Owned the favourites feature, so people can save the breeds they like and come back to them.",
+      "Built reusable UI pieces, including the loading state, so waiting never looks like a broken page.",
+      "Ran QA across the app and checked it on different screen sizes, then presented the finished product.",
+    ],
+    technical: [
+      "React with the Context API (DogProvider / useDogContext) sharing search, results, favourites, loading and error state.",
+      "Favourites saved to localStorage so they survive a refresh.",
+      "Data from The Dog API through a dedicated service module.",
+      "Custom hooks, plus separate loading and error components so every state is visible to the user.",
+      "Built with feature branches and pull requests against a shared testing checklist.",
+    ],
+    outcome: [
+      "A responsive dog breed explorer with search, details and favourites",
+      "Every loading and error state shown clearly to the user",
+    ],
+    stack: ["React", "Context API", "Custom Hooks", "REST API", "Vite"],
+  },
+
+  "Urban Threads": {
+    role: "Solo: UI design and full-stack development (Firebase e-commerce assignment)",
+    problem:
+      "A small streetwear brand needs more than a pretty catalogue: shoppers have to find products quickly, and their cart has to stay private and still be there when they come back.",
+    approach: [
+      "Designed four clear pages: home, shop, login and cart, with the same navigation everywhere.",
+      "Made products easy to find with search, category filters and sorting.",
+      "Kept each shopper's cart private to their own account, with clear states when it's empty or they're logged out.",
+      "Gave the brand a playful pink-and-black identity with a dark mode that keeps it.",
+    ],
+    technical: [
+      "Firebase Authentication with email and password, plus persistent sign-in.",
+      "Product catalogue loaded live from Cloud Firestore, with loading and error states.",
+      "Firestore security rules: products are read-only from the browser, and each user can only read or change their own profile and cart.",
+      "The rules also validate every cart item: only allowed fields, correct types, and a quantity from 1 to 99.",
+      "Plain JavaScript modules for auth, products and cart; theme choice saved in localStorage.",
+      "Toast messages for feedback, keyboard focus indicators and labelled cart controls.",
+    ],
+    outcome: [
+      "A working storefront with accounts, live products and a private cart",
+      "Data protected by database rules, not just by the page",
+    ],
+    stack: ["HTML", "CSS", "JavaScript", "Firebase Auth", "Cloud Firestore"],
+  },
 }
 
 export default caseStudies

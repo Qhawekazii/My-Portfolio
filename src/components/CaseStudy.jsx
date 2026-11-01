@@ -83,10 +83,15 @@ function CaseStudy({ project, study, onClose }) {
         </div>
 
         <div className="project-links">
-          {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>}
-          {project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
-          {project.private && !project.github && (
-            <span className="project-links-empty">Private repo · client work</span>
+          {project.live ? (
+            <a href={project.live} target="_blank" rel="noreferrer">Live ↗</a>
+          ) : (
+            <span className="project-links-empty">{project.liveNote || "Not deployed yet"}</span>
+          )}
+          {project.github ? (
+            <a href={project.github} target="_blank" rel="noreferrer">Repo ↗</a>
+          ) : (
+            <span className="project-links-empty">{project.private ? "Repo private · client work" : "Repo coming soon"}</span>
           )}
         </div>
       </article>

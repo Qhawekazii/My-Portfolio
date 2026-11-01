@@ -5,6 +5,7 @@
 //                   the button will simply be hidden
 // case studies  -> written in data/caseStudies.js, keyed by project name
 // private       -> true for client repos: shows "Private repo" instead of a GitHub link
+// liveNote      -> shown in place of the Live button when there is no public live link
 
 import kindernest from "../assets/kindernest.png"
 import ihub from "../assets/iHubLogo.webp"
@@ -26,6 +27,7 @@ const projects = [
     live: "",
     github: "",
     private: true,
+    liveNote: "Internal app · demo on request",
   },
   {
     name: "Un De Plus Tours",
@@ -59,11 +61,12 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT", "Jest"],
     image: "",
     description:
-      "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks, 43 API tests and a single-app Heroku deployment.",
+      "One REST API serving a guest booking site and a host dashboard, with JWT auth, role checks and 43 API tests, set up to deploy as a single Heroku app.",
     problem:
       "Guests and hosts need different things from the same data, and each should only change what's theirs.",
     live: "",
     github: "https://github.com/Qhawekazii/Emily_AirbnbClone",
+    liveNote: "Not deployed yet",
   },
   {
     name: "Tic-Tac-Toe · Neon Arena",
@@ -80,7 +83,7 @@ const projects = [
   {
     name: "KinderNest",
     type: "WEB / UI DESIGN",
-    tech: ["HTML", "CSS", "JavaScript"],
+    tech: ["HTML", "CSS", "Responsive Design"],
     image: kindernest,
     description:
       "A childcare platform concept designed with a clean layout and a responsive, welcoming user experience for parents.",
