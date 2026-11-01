@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import Loader from "./components/Loader.jsx"
 import Cursor from "./components/Cursor.jsx"
 import Navigation from "./components/Navigation.jsx"
@@ -10,11 +10,28 @@ import Projects from "./components/Projects.jsx"
 import Contact from "./components/Contact.jsx"
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  // The intro animation plays once per visit; returning in the same
+  // session (e.g. a recruiter comparing candidates) skips straight in.
+  const [loading, setLoading] = useState(() => {
+    try {
+      return sessionStorage.getItem("intro-seen") !== "1"
+    } catch {
+      return true
+    }
+  })
+
+  const finishIntro = useCallback(() => {
+    try {
+      sessionStorage.setItem("intro-seen", "1")
+    } catch {
+      // storage unavailable (private mode): the intro just plays again next time
+    }
+    setLoading(false)
+  }, [])
 
   return (
     <>
-      {loading && <Loader onComplete={() => setLoading(false)} />}
+      {loading && <Loader onComplete={finishIntro} />}
 
       <Cursor />
       <ThemeToggle />
