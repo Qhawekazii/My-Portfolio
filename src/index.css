@@ -1173,7 +1173,17 @@ h1, h2, h3, h4 {
 
 .project-links {
   display: flex;
-  gap: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.project-links > * {
+  white-space: nowrap;
+}
+
+.project-links .case-study-btn {
+  margin-left: auto;
 }
 
 .project-links a {
