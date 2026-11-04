@@ -10,7 +10,6 @@ const ROLES = [
 
 function Story() {
   const ref = useReveal()
-  const philosophyRef = useReveal()
 
   return (
     <section id="story">
@@ -20,26 +19,26 @@ function Story() {
         <h2>The person behind the code.</h2>
       </div>
 
-      <div className="philosophy reveal" ref={philosophyRef}>
-        <p>
-          <span>A dentist sees a cavity and fills it.</span> I see the gaps
-          in the digital world —
-          <span> and I fill them.</span>
-        </p>
-      </div>
-
       <div className="story reveal" ref={ref}>
         <div className="story-text">
-          <div className="story-roles">
-            {ROLES.map(({ label, Icon }) => (
-              <span className="role-pill" key={label}>
-                <Icon size={15} strokeWidth={2} />
-                {label}
-              </span>
-            ))}
-          </div>
+          <blockquote className="philosophy">
+            <p>
+              <span>A dentist sees a cavity and fills it.</span> I see the gaps
+              in the digital world —
+              <span> and I fill them.</span>
+            </p>
+          </blockquote>
 
-          <p>
+          <ul className="story-roles" aria-label="Roles">
+            {ROLES.map(({ label, Icon }) => (
+              <li className="role-pill" key={label}>
+                <Icon size={15} strokeWidth={2} aria-hidden="true" />
+                {label}
+              </li>
+            ))}
+          </ul>
+
+          <p className="story-lead">
             I'm Emily Qhawekazi Maramani. I'm UX/UI-focused because an idea only
             works if all kinds of people can use it — on any phone, in any
             language, with any level of confidence on a screen. I design it,
@@ -54,12 +53,9 @@ function Story() {
           </p>
         </div>
 
-        <div className="story-photo-col">
-          <div className="story-photo" data-cursor="hover">
-            <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
-          </div>
-          <span className="story-photo-caption">Emily — Product Engineer · UI/UX · Full-Stack</span>
-        </div>
+        <figure className="story-photo">
+          <img src={portrait} alt="Portrait of Emily Qhawekazi Maramani" />
+        </figure>
       </div>
     </section>
   )
