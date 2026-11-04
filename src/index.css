@@ -775,20 +775,36 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================
-   STORnpm
+   STORY
+   Two columns that share one top and one bottom edge: the photo
+   stretches to the height of the text instead of setting its own.
+   Spacing follows the site scale (8 / 16 / 24 / 32 / 48).
    ========================================================== */
-.philosophy {
-  max-width: 900px;
-  margin-bottom: 80px;
-  padding-left: 28px;
-  border-left: 2px solid var(--border-strong);
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  gap: 48px;
+  align-items: stretch;
 }
 
-.philosophy p {
+.story-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 660px;
+}
+
+.philosophy {
+  margin: 0;
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.story-text .philosophy p {
   font-family: var(--heading-font);
-  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.4;
   color: var(--text-mute);
 }
 
@@ -804,22 +820,11 @@ h1, h2, h3, h4 {
   color: transparent;
 }
 
-@media (max-width: 700px) {
-  .philosophy { padding-left: 18px; margin-bottom: 56px; }
-}
-
-.story {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 70px;
-  align-items: start;
-}
-
 .story-roles {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 26px;
+  gap: 8px;
 }
 
 .role-pill {
@@ -827,65 +832,58 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border-radius: 100px;
+  border-radius: 999px;
   border: 1px solid var(--border-strong);
   background: var(--panel);
   font-family: var(--heading-font);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
   color: var(--teal);
-}
-
-.story-photo-col {
-  transform: translateY(-48px);
-}
-
-.story-photo {
-  position: sticky;
-  top: 120px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-}
-
-.story-photo img {
-  width: 100%;
-  filter: saturate(0.85);
-}
-
-.story-photo-caption {
-  display: block;
-  margin-top: 14px;
-  font-family: var(--heading-font);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  text-align: center;
 }
 
 .story-text p {
   font-family: var(--heading-font);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 400;
+  line-height: 1.75;
   color: var(--text-dim);
-  line-height: 1.8;
-  margin-bottom: 22px;
-  max-width: 640px;
 }
 
-.story-text p:first-of-type {
-  color: var(--text);
-  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+.story-text .story-lead {
+  font-size: clamp(1.15rem, 1.9vw, 1.35rem);
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.story-photo {
+  position: relative;
+  margin: 0;
+  min-height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.story-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
 }
 
 @media (max-width: 900px) {
-  .story { grid-template-columns: 1fr; gap: 34px; }
-  .story-photo-col { transform: none; order: -1; max-width: 260px; }
-  .story-photo { position: static; }
+  /* One column: photo and text share the same width and left edge */
+  .story { grid-template-columns: 1fr; gap: 32px; }
+  .story-text { max-width: none; }
+  .story-photo { order: -1; min-height: 0; width: 100%; max-width: 360px; aspect-ratio: 4 / 5; }
+}
+
+@media (max-width: 560px) {
+  .story-photo { max-width: none; aspect-ratio: 1 / 1; }
 }
 
 /* ==========================================================
@@ -1331,10 +1329,13 @@ button:focus-visible {
   .case-study[open] { animation: none; }
 }
 
-/* Keep every section clear of the fixed side navigation on phones */
-@media (max-width: 560px) {
+/* Keep every section clear of the fixed side navigation on phones and tablets */
+@media (max-width: 900px) {
   section,
   .hero { padding-right: 68px; }
+}
+
+@media (max-width: 560px) {
   .hero-status { letter-spacing: 0.12em; font-size: 0.7rem; line-height: 1.6; }
 }
 
@@ -1900,7 +1901,7 @@ button.channel:hover svg { color: var(--pink); }
   .footer-brand { grid-column: 1 / -1; }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 900px) {
   .site-footer { padding-right: 68px; }
 }
 
